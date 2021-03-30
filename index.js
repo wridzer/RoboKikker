@@ -10,10 +10,12 @@ bot.on('ready', () => {
 bot.login(TOKEN);
 
 bot.on('message', msg => {
+    async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
+    if message.author.bot: return
   if (msg.content === 'maar echt') {
-      if message.author == client.user:
-            return
-      if message.author.bot: return
       msg.channel.send('maar echt');
 
   } else if (msg.content.startsWith('!report')) {
