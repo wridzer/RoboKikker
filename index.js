@@ -14,7 +14,6 @@ bot.on('message', msg => {
   if (msg.author.bot){return}
   if (msg.content === 'maar echt') {
       msg.channel.send('maar echt');
-
   } else if (msg.content.startsWith('!report')) {
     if (msg.mentions.users.size) {
       const taggedUser = msg.mentions.users.first();
