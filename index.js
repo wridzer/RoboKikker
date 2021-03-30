@@ -7,7 +7,7 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-bot.login(TOKEN);
+bot.login("ODI2MTkzMzAxODc4MzQxNjYy.YGI6eQ.sV4z1rnGba0Mrrry69J9Ec2Gi58");
 
 bot.on('message', msg => {
   if (msg.author == client.user){return}
