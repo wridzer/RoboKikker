@@ -10,8 +10,10 @@ bot.on('ready', () => {
 bot.login(TOKEN);
 
 bot.on('message', msg => {
-  //if (msg.author == bot.user){return}
-  //if (msg.author.bot){return}
+  @client.event
+  async def on_message(msg):
+  if (msg.author == bot.user){return}
+  if (msg.author.bot){return}
   if (msg.content === 'maar echt') {
       msg.channel.send('maar echt');
   } else if (msg.content.startsWith('!report')) {
