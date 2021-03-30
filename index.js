@@ -3,11 +3,11 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const TOKEN = require('./config.json');
 
-bot.login(TOKEN);
-
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
+
+bot.login(ODI2MTkzMzAxODc4MzQxNjYy.YGI6eQ.sV4z1rnGba0Mrrry69J9Ec2Gi58);
 
 bot.on('message', msg => {
   if (msg.content === 'maar echt') {
