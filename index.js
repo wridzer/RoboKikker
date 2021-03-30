@@ -10,7 +10,7 @@ bot.on('ready', () => {
 bot.login("ODI2MTkzMzAxODc4MzQxNjYy.YGI6eQ.sV4z1rnGba0Mrrry69J9Ec2Gi58");
 
 bot.on('message', msg => {
-  if (msg.content === 'maar echt') {
+  if (msg.content === 'lit') {
     msg.channel.send('maar echt');
 
   } else if (msg.content.startsWith('!kick')) {
