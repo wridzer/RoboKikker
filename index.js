@@ -7,7 +7,7 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-bot.login(TOKEN);
+bot.login(TOKEN.token);
 
 bot.on('message', msg => {
   //@client.event
