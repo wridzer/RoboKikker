@@ -10,11 +10,11 @@ bot.on('ready', () => {
 bot.login(TOKEN);
 
 bot.on('message', msg => {
-  if (msg.content === 'lit') {
-  if message.author == client.user:
-        return
-    if message.author.bot: return
-    msg.channel.send('maar echt');
+  if (msg.content === 'maar echt') {
+      if message.author == client.user:
+            return
+      if message.author.bot: return
+      msg.channel.send('maar echt');
 
   } else if (msg.content.startsWith('!report')) {
     if (msg.mentions.users.size) {
