@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const TOKEN = require('./config.json');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
