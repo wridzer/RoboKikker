@@ -18,10 +18,11 @@ bot.on('message', msg => {
   if (msg.author.bot){return}
   if (msg.content === 'maar echt') {
       msg.channel.send('Maar echt');
-  } else if (msg.content.startsWith('!report')) {
+  } else if (msg.content.startsWith('!simpreport')) {
     if (msg.mentions.users.size) {
       const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to report: ${taggedUser.username}`);
+      msg.channel.send(`You wanted to report for simping: ${taggedUser.username}`);
+      taggedUser.voice.setChannel(776124955988590593)
     } else {
       msg.reply('Please tag a valid user!');
     }
