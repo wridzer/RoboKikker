@@ -22,7 +22,7 @@ bot.on('message', msg => {
     if (msg.mentions.users.size) {
       const taggedUser = msg.mentions.users.first();
       msg.channel.send(`You wanted to report for simping: ${taggedUser.username}`);
-      taggedUser.voice.setChannel(</776124955988590593>)
+      taggedUser.voice.setChannel</776124955988590593>;
     } else {
       msg.reply('Please tag a valid user!');
     }
