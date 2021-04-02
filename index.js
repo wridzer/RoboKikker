@@ -22,7 +22,7 @@ bot.on('message', msg => {
       msg.channel.send(`You wanted to report for simping: ${taggedUser.username}`);
       //channel = discord.utils.find(lambda x: x.name == 'Slaapkanaal', message.server.channels);
       //await bot.move_member(taggedUser, channel);
-      message.guild.member(taggedUser.id).voice.setChannel('776124955988590593');
+      msg.guild.member(taggedUser.id).voice.setChannel('776124955988590593');
     } else {
       msg.reply('Please tag a valid user!');
     }
