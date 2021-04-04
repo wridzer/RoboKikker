@@ -18,7 +18,8 @@ bot.on('message', msg => {
   {
       msg.channel.send('Maar echt');
   }
-  if (msg.content.startsWith('!simpreport')) {
+  if (msg.content.startsWith('!simpreport'))
+  {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
@@ -28,7 +29,8 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
-  if (!msg.content.startsWith('\"') && msg.channel == '768120241308958800') {
+  if (/*!msg.content.startsWith('\"') &&*/ msg.channel == '768120241308958800')
+  {
     console.log('seks');
     msg.delete(1000);
     msg.channel.send(`Please reserve this channel for quotes`);
