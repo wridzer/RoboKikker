@@ -29,7 +29,7 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
-  if (!msg.content.startsWith('\"') || msg.attachments.size > 0 && msg.channel.id == 768120241308958800)
+  if (!msg.content.startsWith('\"') /*|| msg.attachments.size > 0*/ && msg.channel.id == 768120241308958800)
   {
     msg.delete(1000);
     msg.author.send(`this is not a quote, you freakin pancake`);
@@ -39,7 +39,7 @@ bot.on('message', msg => {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to slide in the dm's of: ${taggedUser.username}`);
+      //msg.channel.send(`You wanted to slide in the dm's of: ${taggedUser.username}`);
       taggedUser.send(msg);
       msg.delete(1000);
     } else {
