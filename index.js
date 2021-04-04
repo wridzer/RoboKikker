@@ -34,4 +34,15 @@ bot.on('message', msg => {
     msg.delete(1000);
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
+  if (msg.content.startsWith('!slidedm'))
+  {
+    if (msg.mentions.users.size)
+    {
+      const taggedUser = msg.mentions.users.first();
+      msg.channel.send(`You wanted to slide in the dm's of: ${taggedUser.username}`);
+      msg.taggedUser.send(msg);
+    } else {
+      msg.reply('Please tag a valid user!');
+    }
+  }
 });
