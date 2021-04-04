@@ -29,9 +29,9 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
-  if (!msg.content.startsWith('\"') && msg.channel.id == 768120241308958800)
+  if (!msg.content.startsWith('\"') || msg.attachments.size > 0 && msg.channel.id == 768120241308958800)
   {
     msg.delete(1000);
-    msg.author.send(`Please reserve this channel for quotes`);
+    msg.author.send(`this is not a quote, you freakin pancake`);
   }
 });
