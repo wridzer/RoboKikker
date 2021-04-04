@@ -41,7 +41,7 @@ bot.on('message', msg => {
       const taggedUser = msg.mentions.users.first();
       if(taggedUser == bot.user)
       {
-        author.send(`Fuck off!`);
+        author.send(`Fuck off! :middle_finger:`);
       } else {
       taggedUser.send(msg.content);
       msg.delete(1000);
