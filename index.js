@@ -18,18 +18,18 @@ bot.on('message', msg => {
   {
       msg.channel.send('Maar echt');
   }
-  if (msg.content.startsWith('!simpreport'))
+  if (msg.content.startsWith('!report'))
   {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
-      msg.channel.send(`You wanted to report for simping: ${taggedUser.username}`);
+      msg.channel.send(`You wanted to report: ${taggedUser.username}`);
       msg.guild.member(taggedUser.id).voice.setChannel('776124955988590593');
     } else {
       msg.reply('Please tag a valid user!');
     }
   }
-  if (/*!msg.content.startsWith('\"') &&*/ msg.channel.id == 768120241308958800)
+  if (!msg.content.startsWith('\"') && msg.channel.id == 768120241308958800)
   {
     console.log('seks');
     msg.delete(1000);
