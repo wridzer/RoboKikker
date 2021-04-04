@@ -31,8 +31,7 @@ bot.on('message', msg => {
   }
   if (!msg.content.startsWith('\"') && msg.channel.id == 768120241308958800)
   {
-    console.log('seks');
     msg.delete(1000);
-    msg.channel.send(`Please reserve this channel for quotes`);
+    msg.author.send(`Please reserve this channel for quotes`);
   }
 });
