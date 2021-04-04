@@ -14,19 +14,21 @@ bot.login(TOKEN.token);
 bot.on('message', msg => {
   if (msg.author == bot.user){return}
   if (msg.author.bot){return}
-  if (msg.content === 'maar echt') {
+  if (msg.content === 'maar echt')
+  {
       msg.channel.send('Maar echt');
-  } else if (msg.content.startsWith('!simpreport')) {
-    if (msg.mentions.users.size) {
+  }
+  if (msg.content.startsWith('!simpreport')) {
+    if (msg.mentions.users.size)
+    {
       const taggedUser = msg.mentions.users.first();
       msg.channel.send(`You wanted to report for simping: ${taggedUser.username}`);
-      //channel = discord.utils.find(lambda x: x.name == 'Slaapkanaal', message.server.channels);
-      //await bot.move_member(taggedUser, channel);
       msg.guild.member(taggedUser.id).voice.setChannel('776124955988590593');
     } else {
       msg.reply('Please tag a valid user!');
     }
-  } else if (!msg.content.startsWith('\"') && msg.channel == '768120241308958800') {
+  }
+  if (!msg.content.startsWith('\"') && msg.channel == '768120241308958800') {
     console.log('seks');
     msg.delete(1000);
     msg.channel.send(`Please reserve this channel for quotes`);
