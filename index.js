@@ -27,6 +27,7 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   } else if (!msg.content.startsWith('\"') && msg.channel == '768120241308958800') {
+    console.log('seks');
     msg.delete(1000);
     msg.channel.send(`Please reserve this channel for quotes`);
   }
