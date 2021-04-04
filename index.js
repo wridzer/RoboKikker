@@ -29,7 +29,7 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
-  if (/*!msg.content.startsWith('\"') &&*/ msg.channel == '768120241308958800')
+  if (/*!msg.content.startsWith('\"') &&*/ msg.channel.id == 768120241308958800)
   {
     console.log('seks');
     msg.delete(1000);
