@@ -41,6 +41,7 @@ bot.on('message', msg => {
       const taggedUser = msg.mentions.users.first();
       msg.channel.send(`You wanted to slide in the dm's of: ${taggedUser.username}`);
       msg.taggedUser.send(msg);
+      msg.delete(1000);
     } else {
       msg.reply('Please tag a valid user!');
     }
