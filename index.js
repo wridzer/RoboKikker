@@ -39,9 +39,13 @@ bot.on('message', msg => {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
-      //msg.channel.send(`You wanted to slide in the dm's of: ${taggedUser.username}`);
+      if(taggedUser == bot.user)
+      {
+        author.send(`Fuck off!`);
+      } else {
       taggedUser.send(msg.content);
       msg.delete(1000);
+      }
     } else {
       msg.reply('Please tag a valid user!');
     }
