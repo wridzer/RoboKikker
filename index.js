@@ -63,14 +63,14 @@ bot.on('message', msg => {
       var i;
       for(i = 0; i = classreps.length; i++)
       {
-        if(classreps != taggedUser.id)
+        if(classreps = taggedUser.id)
         {
           const message1 = msg.content.substring(32, msg.content.length);
           taggedUser.send(message1);
           msg.delete(1000);
-        }
-      } else {
+        } else {
         msg.reply('Please tag a valid user!');
+        }
       }
     } else {
       msg.reply('Please tag a valid user!');
