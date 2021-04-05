@@ -60,7 +60,7 @@ bot.on('message', msg => {
         msg.delete(1000);
         msg.author.send(`Fuck off! :middle_finger:`);
       }
-      var i
+      var i;
       for(i = 0; i = classreps.length; i++)
       {
         if(classreps != taggedUser.id)
