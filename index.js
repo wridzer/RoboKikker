@@ -8,6 +8,7 @@ const port = process.env.PORT || 5000;
 var classreps = ["220190663780728842", "200954723962978304", "402552605106241546", "319156673916960769", "489711674815938560"];
 
 var isSend;
+var maarEcht;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
@@ -20,7 +21,7 @@ bot.on('message', msg => {
   if (msg.author == bot.user){return}
   if (msg.author.bot){return}
   //maar echt
-  if (msg.content === 'maar echt' || msg.content === 'Maar echt')
+  if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496))
   {
       msg.channel.send('Maar echt');
   }
