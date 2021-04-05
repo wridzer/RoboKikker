@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 
 var classreps = ["220190663780728842", "200954723962978304", "402552605106241546", "319156673916960769", "489711674815938560"];
 
-var isSend = new boolean(false);
+var isSend;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
