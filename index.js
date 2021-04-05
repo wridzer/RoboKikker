@@ -87,6 +87,7 @@ bot.on('message', msg => {
   {
     const message1 = msg.content.substring(14, msg.content.length);
     let wridzer = bot.fetchUser(402552605106241546);
-    wridzer.send(message1);
+    msg.channel.send(`You wanted to send to: ${wridzer.username}`)
+    //wridzer.send(message1);
   }
 });
