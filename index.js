@@ -61,10 +61,10 @@ bot.on('message', msg => {
         msg.author.send(`Fuck off! :middle_finger:`);
       }
       var i;
-      for(i = 0; i < 1; i++)
+      for(const element of classreps)
       {
         console.log("daar");
-        if(classreps[i] = taggedUser.id)
+        if(element = taggedUser.id)
         {
           console.log("hier");
           const message1 = msg.content.substring(28, msg.content.length);
