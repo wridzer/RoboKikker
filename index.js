@@ -16,7 +16,7 @@ bot.on('message', msg => {
   if (msg.author == bot.user){return}
   if (msg.author.bot){return}
   //maar echt
-  if (msg.content == 'maar echt' || msg.content == 'Maar echt')
+  if (msg.content === 'maar echt' || msg.content === 'Maar echt')
   {
       msg.channel.send('Maar echt');
   }
