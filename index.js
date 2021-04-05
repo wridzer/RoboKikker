@@ -88,7 +88,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
     let user = client.fetchUser('402552605106241546')
     .then(user => {
-        user.send('You have recieved an anonymous message:' + message1);
+        user.send('You have recieved an anonymous message: ' + message1);
     msg.delete(1000);
     });
   }
@@ -98,7 +98,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
     let user = client.fetchUser('200954723962978304')
     .then(user => {
-        user.send('You have recieved an anonymous message:' + message1); 
+        user.send('You have recieved an anonymous message: ' + message1); 
     msg.delete(1000);
     });
   }
@@ -108,7 +108,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
     let user = client.fetchUser('319156673916960769')
     .then(user => {
-        user.send('You have recieved an anonymous message:' + message1); 
+        user.send('You have recieved an anonymous message: ' + message1); 
     msg.delete(1000);
     });
   }
@@ -118,7 +118,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
     let user = client.fetchUser('489711674815938560')
     .then(user => {
-        user.send('You have recieved an anonymous message:' + message1); 
+        user.send('You have recieved an anonymous message: ' + message1); 
     msg.delete(1000);
     });
   }
