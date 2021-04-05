@@ -38,7 +38,7 @@ bot.on('message', msg => {
   {
     if (msg.mentions.users.size)
     {
-      const taggedUser = msg.mentions.users.first();
+      const taggedUser = msg.mentions.member.first();
       if(taggedUser == bot.user)
       {
         msg.delete(1000);
