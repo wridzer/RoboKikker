@@ -30,7 +30,7 @@ bot.on('message', msg => {
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
       //const strafhoek = bot.channels.get(765951880236105758);
       //user.voice.setChannel(strafhoek);
-      msg.guild.member(taggedUser.id).voice.setChannel(765951880236105758);
+      msg.guild.member(taggedUser.id).voice.setChannel(msg.guild.channels.find(channel => channel.name === "Slaapkanaal").toString());
     } else {
       msg.reply('Please tag a valid user!');
     }
