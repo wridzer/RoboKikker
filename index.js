@@ -64,7 +64,7 @@ bot.on('message', msg => {
       for(const element of classreps)
       {
         console.log("daar");
-        if(element = taggedUser.id)
+        if(element == taggedUser.id)
         {
           console.log("hier");
           const message1 = msg.content.substring(28, msg.content.length);
