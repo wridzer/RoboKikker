@@ -88,7 +88,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
     let user = client.fetchUser('402552605106241546')
     .then(user => {
-        user.send('You have recieved an anonymous message: ' + message1);
+        user.send('```You have recieved an anonymous message: ' + message1 + "```");
     msg.delete(1000);
     });
   }
