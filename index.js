@@ -53,7 +53,7 @@ bot.on('message', msg => {
     msg.author.send(`stop doing this plz`);
   }
   //anon command
-  if (msg.content.startsWith('!anon'))
+  /*if (msg.content.startsWith('!anon'))
   {
     if (msg.mentions.users.size)
     {
@@ -82,5 +82,11 @@ bot.on('message', msg => {
       msg.delete(1000);
       msg.author.send('Please tag a valid user!');
     }
+  }*/
+  if (msg.content.startsWith('!anon wridzer'))
+  {
+    const message1 = msg.content.substring(14, msg.content.length);
+    let wridzer = bot.fetchUser(402552605106241546);
+    wridzer.send(message1);
   }
 });
