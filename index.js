@@ -27,7 +27,7 @@ bot.on('message', msg => {
     {
       const taggedUser = msg.mentions.users.first();
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
-      msg.guild.member(taggedUser.id).voice.setChannel('776124955988590593');
+      msg.guild.member(taggedUser.id).voice.setChannel(765951880236105758);
     } else {
       msg.reply('Please tag a valid user!');
     }
