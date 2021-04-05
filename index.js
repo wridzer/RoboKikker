@@ -50,7 +50,7 @@ bot.on('message', msg => {
     msg.author.send(`stop doing this plz`);
   }
   //slidedm command
-  if (msg.content.startsWith('!anonymous'))
+  if (msg.content.startsWith('!anon'))
   {
     if (msg.mentions.users.size)
     {
@@ -63,7 +63,7 @@ bot.on('message', msg => {
       var i;
       for(i = 0; i == classreps.length; i++)
       {
-        if(classreps = taggedUser.id)
+        if(classreps[i] = taggedUser.id)
         {
           const message1 = msg.content.substring(32, msg.content.length);
           taggedUser.send(message1);
