@@ -5,10 +5,9 @@ const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
 
-var classreps = ["220190663780728842", "200954723962978304", "402552605106241546", "319156673916960769", "489711674815938560"];
+//var classreps = ["220190663780728842", "200954723962978304", "402552605106241546", "319156673916960769", "489711674815938560"];
 
-var isSend;
-var maarEcht;
+//var isSend;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
@@ -86,17 +85,41 @@ bot.on('message', msg => {
   if (msg.content.startsWith('!anon wridzer'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
-    //let wridzer = bot.fetchUser(<402552605106241546>);
-    //msg.channel.send(`You wanted to send to: ${wridzer.username}`)
-    //wridzer.send(message1);
-    // get client from message's channel
     let client = msg.channel.client;
-
-    // fetch user via given user id
     let user = client.fetchUser('402552605106241546')
     .then(user => {
-        // once promise returns with user, send user a DM
+        user.send(message1);
+    msg.delete(1000);
+    });
+  }
+  if (msg.content.startsWith('!anon ravi'))
+  {
+    const message1 = msg.content.substring(14, msg.content.length);
+    let client = msg.channel.client;
+    let user = client.fetchUser('200954723962978304')
+    .then(user => {
         user.send(message1); 
+    msg.delete(1000);
+    });
+  }
+  if (msg.content.startsWith('!anon sophie'))
+  {
+    const message1 = msg.content.substring(14, msg.content.length);
+    let client = msg.channel.client;
+    let user = client.fetchUser('319156673916960769')
+    .then(user => {
+        user.send(message1); 
+    msg.delete(1000);
+    });
+  }
+  if (msg.content.startsWith('!anon roberto'))
+  {
+    const message1 = msg.content.substring(14, msg.content.length);
+    let client = msg.channel.client;
+    let user = client.fetchUser('489711674815938560')
+    .then(user => {
+        user.send(message1); 
+    msg.delete(1000);
     });
   }
 });
