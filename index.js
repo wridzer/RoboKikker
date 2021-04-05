@@ -45,7 +45,7 @@ bot.on('message', msg => {
         msg.author.send(`Fuck off! :middle_finger:`);
       } else {
       const message1 = msg.content.substring(10+taggedUser.nickname.length, msg.content.length)
-      taggedUser.send(msg);
+      taggedUser.send(message1);
       msg.delete(1000);
       }
     } else {
