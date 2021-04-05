@@ -26,10 +26,11 @@ bot.on('message', msg => {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
-      let user = msg.guild.member(msg.mentions.users.first());
+      //let user = msg.guild.member(msg.mentions.users.first());
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
-      const strafhoek = bot.channels.get(765951880236105758);
-      user.voice.setChannel(strafhoek);
+      //const strafhoek = bot.channels.get(765951880236105758);
+      //user.voice.setChannel(strafhoek);
+      message.guild.member(taggedUser.id).voice.setChannel(765951880236105758);
     } else {
       msg.reply('Please tag a valid user!');
     }
