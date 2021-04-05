@@ -70,7 +70,10 @@ bot.on('message', msg => {
           const message1 = msg.content.substring(28, msg.content.length);
           taggedUser.send(message1);
           msg.delete(1000);
-        }
+        } else {
+          msg.delete(1000);
+          msg.author.send('Please tag a valid user!');
+          }
       }
     } else {
       msg.delete(1000);
