@@ -26,7 +26,7 @@ bot.on('message', msg => {
     if (msg.mentions.users.size)
     {
       const taggedUser = msg.mentions.users.first();
-      let user = message.guild.member(message.mentions.users.first());
+      let user = msg.guild.member(message.mentions.users.first());
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
       user.voice.setChannel(765951880236105758);
     } else {
