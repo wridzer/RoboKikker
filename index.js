@@ -86,8 +86,17 @@ bot.on('message', msg => {
   if (msg.content.startsWith('!anon wridzer'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
-    let wridzer = bot.fetchUser(<402552605106241546>);
+    //let wridzer = bot.fetchUser(<402552605106241546>);
     msg.channel.send(`You wanted to send to: ${wridzer.username}`)
     //wridzer.send(message1);
+    // get client from message's channel
+    let client = msg.channel.client;
+
+    // fetch user via given user id
+    let user = client.fetchUser('<402552605106241546>')
+    .then(user => {
+        // once promise returns with user, send user a DM
+        user.send(message1); 
+    });
   }
 });
