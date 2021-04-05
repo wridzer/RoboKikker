@@ -7,6 +7,8 @@ const port = process.env.PORT || 5000;
 
 var classreps = ["220190663780728842", "200954723962978304", "402552605106241546", "319156673916960769", "489711674815938560"];
 
+var isSend = new boolean(false);
+
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
@@ -49,7 +51,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     msg.author.send(`stop doing this plz`);
   }
-  //slidedm command
+  //anon command
   if (msg.content.startsWith('!anon'))
   {
     if (msg.mentions.users.size)
@@ -57,24 +59,24 @@ bot.on('message', msg => {
       const taggedUser = msg.mentions.users.first();
       if(taggedUser == bot.user)
       {
-        msg.delete(1000);
         msg.author.send(`Fuck off! :middle_finger:`);
       }
       var i;
       for(const element of classreps)
       {
-        console.log("daar");
         if(element == taggedUser.id)
         {
-          console.log("hier");
           const message1 = msg.content.substring(28, msg.content.length);
           taggedUser.send(message1);
-          msg.delete(1000);
-        } else {
-          msg.delete(1000);
-          msg.author.send('Please tag a valid user!');
-          }
+          isSend = true;
+        }
       }
+      if (!isSend)
+      {
+        msg.author.send('Please tag a valid user!');
+      }
+      msg.delete(1000);
+      isSend = false;
     } else {
       msg.delete(1000);
       msg.author.send('Please tag a valid user!');
