@@ -61,13 +61,13 @@ bot.on('message', msg => {
         msg.author.send(`Fuck off! :middle_finger:`);
       }
       var i;
-      for(i = 0; i < classreps.length -1; i++)
+      for(i = 0; i < 1; i++)
       {
         console.log("daar");
         if(classreps[i] = taggedUser.id)
         {
           console.log("hier");
-          const message1 = msg.content.substring(32, msg.content.length);
+          const message1 = msg.content.substring(28, msg.content.length);
           taggedUser.send(message1);
           msg.delete(1000);
         }
