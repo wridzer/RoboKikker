@@ -12,12 +12,15 @@ bot.on('ready', () => {
 bot.login(TOKEN.token);
 
 bot.on('message', msg => {
+  //not respond to self or other bots
   if (msg.author == bot.user){return}
   if (msg.author.bot){return}
+  //maar echt
   if (msg.content === 'maar echt')
   {
       msg.channel.send('Maar echt');
   }
+  //report command
   if (msg.content.startsWith('!report'))
   {
     if (msg.mentions.users.size)
@@ -29,11 +32,13 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
+  //delete non quotes from quote channel
   if ((!msg.content.startsWith('\"') || msg.attachments.size > 0) && msg.channel.id == 768120241308958800)
   {
     msg.delete(1000);
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
+  //slidedm command
   if (msg.content.startsWith('!slidedm'))
   {
     if (msg.mentions.users.size)
@@ -44,7 +49,7 @@ bot.on('message', msg => {
         msg.delete(1000);
         msg.author.send(`Fuck off! :middle_finger:`);
       } else {
-      const message1 = msg.content.substring(10/*+taggedUser.displayName.length*/, msg.content.length)
+      const message1 = msg.content.substring(32/*+taggedUser.displayName.length*/, msg.content.length)
       taggedUser.send(message1);
       msg.delete(1000);
       }
