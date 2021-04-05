@@ -61,8 +61,10 @@ bot.on('message', msg => {
         msg.author.send(`Fuck off! :middle_finger:`);
       }
       var i;
+      console.log("hier");
       for(classreps[i] = 0; i < classreps.length; i++)
       {
+        console.log("daar");
         if(classreps[i] = taggedUser.id)
         {
           const message1 = msg.content.substring(32, msg.content.length);
