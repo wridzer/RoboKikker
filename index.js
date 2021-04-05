@@ -93,7 +93,7 @@ bot.on('message', msg => {
     let client = msg.channel.client;
 
     // fetch user via given user id
-    let user = client.fetchUser('<402552605106241546>')
+    let user = client.fetchUser('402552605106241546')
     .then(user => {
         // once promise returns with user, send user a DM
         user.send(message1); 
