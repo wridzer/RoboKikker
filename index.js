@@ -61,7 +61,7 @@ bot.on('message', msg => {
         msg.author.send(`Fuck off! :middle_finger:`);
       }
       var i;
-      for(i = 0; i <= classreps.length; i++)
+      for(classreps[i] = 0; i < classreps.length; i++)
       {
         if(classreps[i] = taggedUser.id)
         {
@@ -70,12 +70,12 @@ bot.on('message', msg => {
           msg.delete(1000);
         } else {
           msg.delete(1000);
-          msg.reply('Please tag a valid user!');
+          msg.author.send('Please tag a valid user!');
         }
       }
     } else {
       msg.delete(1000);
-      msg.reply('Please tag a valid user!');
+      msg.author.send('Please tag a valid user!');
     }
   }
 });
