@@ -46,11 +46,11 @@ bot.on('message', msg => {
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
   //delete non pics from pet/froggy channel
-  if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
+  /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
   {
     msg.delete(1000);
     msg.author.send(`stop doing this plz`);
-  }
+  }*/
   //anon command
   /*if (msg.content.startsWith('!anon'))
   {
