@@ -52,6 +52,10 @@ bot.on('message', msg => {
     msg.delete(1000);
     msg.channel.send(message1);
   }
+  if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
+  {
+    msg.delete(1000);
+  }
   //delete non pics from pet/froggy channel
   /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
   {
