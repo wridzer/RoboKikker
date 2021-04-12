@@ -45,6 +45,13 @@ bot.on('message', msg => {
     msg.delete(1000);
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
+  //stupid question
+  if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
+  {
+    const message1 = msg.content.substring(8, msg.content.length);
+    msg.delete(1000);
+    msg.channel.send(message1);
+  }
   //delete non pics from pet/froggy channel
   /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
   {
