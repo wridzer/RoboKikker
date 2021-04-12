@@ -46,7 +46,7 @@ bot.on('message', msg => {
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
   //stupid question
-  if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
+  if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
   {
     const message1 = msg.content.substring(8, msg.content.length);
     msg.delete(1000);
