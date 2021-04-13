@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const TOKEN = require('./config.json');
@@ -133,4 +133,17 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
+  if(msg.content.startsWith('!art'))
+  {
+    const commandMessage = msg;
+    message.react('✔️');
+    message.react('❌');
+  }
+}
+
+client.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === "✔️" && reaction.message == commandMessage)
+    {
+        console.log(reaction.users);
+    }
 });
