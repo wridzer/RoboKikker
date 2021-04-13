@@ -147,6 +147,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
     {
         //reaction.user.roles.add(role);
         //reaction.message.guild.members.cache.find(member => member.id === user.id);
-        console.log(reaction.message.guild.members.cache.find(member => member.id === user.id));
+        console.log(reaction.user.id);
     }
 });
