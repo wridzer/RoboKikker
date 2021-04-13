@@ -139,7 +139,7 @@ bot.on('message', msg => {
     message.react('✔️');
     message.react('❌');
   }
-}
+});
 
 client.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️" && reaction.message == commandMessage)
