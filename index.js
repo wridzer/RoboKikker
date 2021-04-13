@@ -146,6 +146,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         //reaction.user.roles.add(role);
-        console.log('sex');
+        console.log(user.id);
     }
 });
