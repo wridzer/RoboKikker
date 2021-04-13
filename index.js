@@ -141,7 +141,7 @@ bot.on('message', msg => {
   }
 });
 
-client.on('messageReactionAdd', (reaction, user) => {
+bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️" && reaction.message == commandMessage)
     {
         console.log(reaction.users);
