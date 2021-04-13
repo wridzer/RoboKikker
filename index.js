@@ -135,7 +135,7 @@ bot.on('message', msg => {
   }
   if(msg.content.startsWith('!art'))
   {
-    var role = msg.author.guild.roles.find(role => role.name === "ArTisT");
+    var role = msg.guild.roles.find(role => role.name === "ArTisT");
     const commandMessage = msg;
     msg.react('✔️');
     msg.react('❌');
