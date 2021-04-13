@@ -146,7 +146,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         //user.roles.add(role);
-        let server = client.guilds.cache.get('757737687921852496')
+        let server = bot.guilds.cache.get('757737687921852496')
         var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
         //let role = reaction.message.member.guild.roles.cache.find(role => role.name === "ArTisT");
         if (!role) return;
