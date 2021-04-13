@@ -144,7 +144,7 @@ bot.on('message', msg => {
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
-        var role = user.guild.roles.cache.find(role => role.name === "profeet");
+        var role = message.guild.roles.find(role => role.name === "profeet");
         reaction.users.roles.add(role);
     }
 });
