@@ -135,7 +135,7 @@ bot.on('message', msg => {
   }
   if(msg.content.startsWith('!art'))
   {
-    var role = msg.guild.roles.find(role => role.name === "ArTisT");
+    //var role = msg.guild.roles.find(role => role.name === "ArTisT");
     const commandMessage = msg;
     msg.react('✔️');
     msg.react('❌');
@@ -146,6 +146,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         //user.roles.add(role);
-        reaction.message.guild.member.roles.add(role);
+        reaction.message.guild.member.roles.add(msg.guild.roles.find(role => role.name === "ArTisT"));
     }
 });
