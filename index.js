@@ -136,8 +136,8 @@ bot.on('message', msg => {
   if(msg.content.startsWith('!art'))
   {
     const commandMessage = msg;
-    message.react('✔️');
-    message.react('❌');
+    msg.react('✔️');
+    msg.react('❌');
   }
 });
 
