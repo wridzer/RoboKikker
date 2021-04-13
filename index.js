@@ -142,7 +142,7 @@ bot.on('message', msg => {
 });
 
 bot.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "✔️" && reaction.message == commandMessage)
+    if(reaction.emoji.name === "✔️")
     {
         console.log(reaction.users);
     }
