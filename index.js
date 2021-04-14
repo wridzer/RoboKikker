@@ -147,8 +147,8 @@ bot.on('messageReactionAdd', (reaction, user) => {
     {
         //user.roles.add('831547671110090774');
         //let server = bot.guilds.cache.get('757737687921852496')
-        var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
-        //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
+        //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
+        let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
         console.log(role.id);
         reaction.message.guild.member.roles.add(role).catch((error) => {
