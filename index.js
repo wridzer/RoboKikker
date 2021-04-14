@@ -163,6 +163,8 @@ bot.on('messageReactionAdd', (reaction, user) => {
         }*/
         //console.log(servers.members);
         //servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
+        console.log(reaction.message.guild.member);
+        console.log(reaction.message.guild.member.roles);
         reaction.message.guild.member.roles.add(role);
     }
 });
