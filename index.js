@@ -150,7 +150,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
         //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
-        reaction.message.mentions.roles.first();
+        let role = reaction.message.mentions.roles.first();
         if (role.id == 831547671110090774)
         {
           console.log(role.id);
