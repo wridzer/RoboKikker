@@ -147,9 +147,11 @@ bot.on('message', msg => {
   }
 });
 
-bot.on('messageReactionAdd', (reaction, user) => {
+bot.on('messageReactionAdd', packet => {
     if(reaction.emoji.name === "✔️")
     {
+        console.log(packet.d.guild_id);
+        console.log(packet.d.user_id);
         //user.roles.add('831547671110090774');
         const servers = bot.guilds.get('757737687921852496');
         //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
