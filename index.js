@@ -56,6 +56,11 @@ bot.on('message', msg => {
   {
     msg.delete(1000);
   }
+  if (!msg.content.startsWith('!') && msg.channel.id == 828625609554788352)
+  {
+    msg.delete(1000);
+    msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
+  }
   //delete non pics from pet/froggy channel
   /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
   {
