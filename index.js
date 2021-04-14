@@ -108,7 +108,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if (msg.content.startsWith('!anon ravi'))
+  if (msg.content.startsWith('!anon ravi') || msg.content.startsWith('!anon Ravi'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
@@ -118,7 +118,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if (msg.content.startsWith('!anon sophie'))
+  if (msg.content.startsWith('!anon sophie') || msg.content.startsWith('!anon Sophie'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
@@ -128,7 +128,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if (msg.content.startsWith('!anon roberto'))
+  if (msg.content.startsWith('!anon roberto') || msg.content.startsWith('!anon Roberto'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
@@ -138,7 +138,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if(msg.content.startsWith('!art'))
+  if(msg.content.startsWith('!role'))
   {
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
     const commandMessage = msg;
