@@ -151,6 +151,10 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
         console.log(role.id);
-        //reaction.message.guild.member.roles.add(role);
+        reaction.message.guild.member.roles.add(role).catch((error) => {
+          reaction.message.channel.send("I cant add...")
+        }).then((user) => {
+          reaction.message.channel.send(`:thumbsup: ${roleAdd} added to ${member.displayName}`)
+        })
     }
 });
