@@ -154,7 +154,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
         if (role.id == 831547671110090774)
         {
           console.log(role.id);
-          reaction.message.guild.members.roles.add(role);
+          reaction.message.guild.members.roles.add(role.id);
         }
         //reaction.message.guild.member.roles.add(role);
     }
