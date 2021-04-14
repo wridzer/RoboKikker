@@ -151,12 +151,12 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
         let role = reaction.message.mentions.roles.first();
-        if (role.id == 831547671110090774)
+        /*if (role.id == 831547671110090774)
         {
           console.log(role.id);
           
-          servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
-        }
+        }*/
+        servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
         //reaction.message.guild.member.roles.add(role);
     }
 });
