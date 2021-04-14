@@ -153,7 +153,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //user.roles.add('831547671110090774');
         const servers = bot.guilds.get('757737687921852496');
         //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
-        let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
+        //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
         let role = reaction.message.mentions.roles.first();
         /*if (role.id == 831547671110090774)
