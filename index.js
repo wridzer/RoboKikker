@@ -148,8 +148,8 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //user.roles.add(role);
         //let server = bot.guilds.cache.get('757737687921852496')
         //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
-        let role = reaction.message.guild.roles.find(role => role.id == "831547671110090774");
+        //let role = reaction.message.guild.roles.find(role => role.id == "831547671110090774");
         //if (!role) return;
-        reaction.message.guild.member.roles.add(role);
+        reaction.message.guild.member.roles.add(reaction.message.guild.roles.find(role => role.id == "831547671110090774"));
     }
 });
