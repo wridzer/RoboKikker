@@ -146,7 +146,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         //user.roles.add('831547671110090774');
-        const servers = bot.guilds.get('757737687921852496')
+        const servers = bot.guilds.get('757737687921852496');
         //var memberRole= server.roles.cache.find(role => role.name === "ArTisT")
         //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
@@ -156,6 +156,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
           console.log(role.id);
           
         }*/
+        console.log(servers);
         servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
         //reaction.message.guild.member.roles.add(role);
     }
