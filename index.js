@@ -56,7 +56,7 @@ bot.on('message', msg => {
   {
     msg.delete(1000);
   }
-  if (!msg.content.startsWith('!') && msg.channel.id == 828625609554788352)
+  if (!msg.content.startsWith('!anon') && msg.channel.id == 828625609554788352)
   {
     msg.delete(1000);
     msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
@@ -98,7 +98,7 @@ bot.on('message', msg => {
       msg.author.send('Please tag a valid user!');
     }
   }*/
-  if (msg.content.startsWith('!anon wridzer'))
+  if (msg.content.startsWith('!anon wridzer') || msg.content.startsWith('!anon Wridzer'))
   {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
