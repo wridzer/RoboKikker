@@ -180,6 +180,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //console.log(role);
         //console.log(user.id);
         let reactMember = bot.guilds.get(user.id)
-        reactMember.roles.add(role);
+        user.roles.add(role);
     }
 });
