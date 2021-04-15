@@ -154,6 +154,7 @@ bot.on('message', msg => {
 
 bot.on('raw', packet => {
     const channel = bot.channels.get(packet.d.channel_id);
+    console.log(channel);
     channel.messages.fetch(packet.d.message_id).then(message => {
         const servers = bot.guilds.cache.get(packet.d.guild_id);
         if (packet.t === 'MESSAGE_REACTION_ADD'){
