@@ -159,18 +159,20 @@ bot.on('message', msg => {
 bot.on('raw', packet => {
     if (!initialized) return;
     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
-    //const channel = bot.channels.cache.get(packet.d.channel_id);
-    const channel = bot.guilds.get('757737687921852496').channels.get(packet.d.channel_id);
-    console.log(channel.messages);
-    channel.messages.get(packet.d.message_id).then(message => {
-        const servers = bot.guilds.cache.get(packet.d.guild_id);
-        if (packet.t === 'MESSAGE_REACTION_ADD'){
-            if(packet.d.emoji.name === "✔️"){
-                const servers = bot.guilds.get('757737687921852496');
-                let role = reaction.message.guild.roles.find(role => role.id == '831547671110090774');
-                servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
+    (async () => {
+        //const channel = bot.channels.cache.get(packet.d.channel_id);
+        const channel = bot.guilds.get('757737687921852496').channels.get(packet.d.channel_id);
+        console.log(channel.messages);
+        channel.messages.fetch(packet.d.message_id).then(message => {
+            const servers = bot.guilds.cache.get(packet.d.guild_id);
+            if (packet.t === 'MESSAGE_REACTION_ADD'){
+                if(packet.d.emoji.name === "✔️"){
+                    const servers = bot.guilds.get('757737687921852496');
+                    let role = reaction.message.guild.roles.find(role => role.id == '831547671110090774');
+                    servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
+                }
             }
-        }
+        });
     });
 });
 
