@@ -155,7 +155,7 @@ bot.on('message', msg => {
     msg.react('❌');
   }
 });
-
+/*
 bot.on('raw', packet => {
     if (!initialized) return;
     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
@@ -172,7 +172,7 @@ bot.on('raw', packet => {
         }
     });
 });
-
+*/
 /*
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
