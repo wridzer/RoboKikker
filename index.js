@@ -1,6 +1,11 @@
 ﻿require('dotenv').config();
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.Client({
+    partials: ["REACTION", "MESSAGE"],
+    ws: {
+        intents: ["GUILD_MEMBERS", "GUILDS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"]
+    }
+});
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
@@ -138,7 +143,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if(msg.content.startsWith('!role'))
+  if(msg.content.startsWith('!art'))
   {
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
     const commandMessage = msg;
@@ -147,9 +152,22 @@ bot.on('message', msg => {
   }
 });
 
-bot.on('messageReactionAdd', packet => {
-    console.log(packet.d.guild_id);
-    console.log(packet.d.user_id);
+bot.on('raw', packet => {
+    const channel = bot.channels.cache.get(packet.d.channel_id);
+    channel.messages.fetch(packet.d.message_id).then(message => {
+        const servers = bot.guilds.cache.get(packet.d.guild_id);
+        if (packet.t === 'MESSAGE_REACTION_ADD'){
+            if(packet.d.emoji.name === "✔️"){
+                const servers = bot.guilds.get('757737687921852496');
+                let role = reaction.message.guild.roles.find(role => role.id == '831547671110090774');
+                servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
+            }
+        }
+    });
+});
+
+/*
+bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         //user.roles.add('831547671110090774');
@@ -158,15 +176,15 @@ bot.on('messageReactionAdd', packet => {
         //let role = reaction.message.guild.roles.find(role => role.id == 831547671110090774);
         //if (!role) return;
         let role = reaction.message.mentions.roles.first();
-        /*if (role.id == 831547671110090774)
+        if (role.id == 831547671110090774)
         {
           console.log(role.id);
           
-        }*/
+        }
         //console.log(servers.members);
         servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
         //console.log(reaction.message.guild.member);
         //console.log(reaction.message.guild.member.roles);
         //reaction.message.guild.member.roles.add(role);
     }
-});
+});*/
