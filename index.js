@@ -178,7 +178,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     {
         let role = reaction.message.mentions.roles.first();
         //console.log(role);
-        console.log(reaction.message.guild.member.id);
+        console.log(user.id);
         //reaction.message.guild.member.roles.add(role);
     }
 });
