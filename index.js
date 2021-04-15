@@ -172,7 +172,7 @@ bot.on('raw', packet => {
     });
 });
 */
-
+/*
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
@@ -182,4 +182,4 @@ bot.on('messageReactionAdd', (reaction, user) => {
         let reactMember = bot.guilds.get(user.id)
         user.roles.add(role);
     }
-});
+});*/
