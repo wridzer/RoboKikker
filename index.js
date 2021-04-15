@@ -153,6 +153,7 @@ bot.on('message', msg => {
 });
 
 bot.on('raw', packet => {
+    if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
     const channel = bot.channels.get(packet.d.channel_id);
     console.log(channel);
     channel.messages.fetch(packet.d.message_id).then(message => {
