@@ -179,7 +179,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
         let role = reaction.message.mentions.roles.first();
         //console.log(role);
         //console.log(user.id);
-        let reactMember = reaction.message.Guild.members.fetch(user.id)
+        let reactMember = bot.guilds.get(user.id)
         reactMember.roles.add(role);
     }
 });
