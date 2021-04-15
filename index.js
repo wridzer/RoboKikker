@@ -1,10 +1,7 @@
 ﻿require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client({
-    partials: ["REACTION", "MESSAGE"],
-    ws: {
-        intents: ["GUILD_MEMBERS", "GUILDS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"]
-    }
+    partials: ["REACTION", "MESSAGE"]
 });
 const TOKEN = require('./config.json');
 
