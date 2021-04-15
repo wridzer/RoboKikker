@@ -14,8 +14,12 @@ const port = process.env.PORT || 5000;
 
 //var isSend;
 
+var initialized = false;
+
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
+
+  initialized = true;
 });
 
 bot.login(TOKEN.token);
@@ -153,6 +157,7 @@ bot.on('message', msg => {
 });
 
 bot.on('raw', packet => {
+    if (!initialized) return;
     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
     const channel = bot.channels.get(packet.d.channel_id);
     console.log(channel);
