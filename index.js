@@ -183,6 +183,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
         const servers = bot.guilds.get('757737687921852496');
         console.log(servers.members.get(user.id));
         const reactor = servers.members.get(user.id);
-        reactor.roles.add(role);
+        reactor.member.roles.add(role);
     }
 });
