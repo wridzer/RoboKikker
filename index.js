@@ -172,14 +172,16 @@ bot.on('raw', packet => {
     });
 });
 */
-/*
+
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
-        let role = reaction.message.mentions.roles.first();
+        //let role = reaction.message.mentions.roles.first();
         //console.log(role);
         //console.log(user.id);
-        let reactMember = bot.guilds.get(user.id)
-        user.roles.add(role);
+        //let reactMember = bot.guilds.get(user.id)
+        //user.roles.add(role);
+        const servers = bot.guilds.cache.get('757737687921852496');
+        console.log(servers.members.fetch(user.id));
     }
-});*/
+});
