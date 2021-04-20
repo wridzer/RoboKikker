@@ -177,12 +177,12 @@ bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
         let role = reaction.message.mentions.roles.first();
-        //console.log(role);
+        console.log(role);
         //console.log(user.id);
         //let reactMember = bot.guilds.get(user.id)
         const servers = bot.guilds.get('757737687921852496');
         console.log(servers.members.get(user.id));
         const reactor = servers.members.get(user.id);
-        reactor.member.roles.add(role);
+        //reactor.member.roles.add(role);
     }
 });
