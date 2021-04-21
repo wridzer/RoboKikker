@@ -145,7 +145,7 @@ bot.on('message', msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-      let role = reaction.message.mentions.roles.first();
+      let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
       taggedMember.roles.add(role);
 
