@@ -145,10 +145,15 @@ bot.on('message', msg => {
   }
   if(msg.content.startsWith('!role'))
   {
+      let role = reaction.message.mentions.roles.first();
+      const taggedMember = msg.mentions.members.first();
+
+      taggedMember.roles.add(role);
+
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
-    const commandMessage = msg;
+    /*const commandMessage = msg;
     msg.react('✔️');
-    msg.react('❌');
+    msg.react('❌');*/
   }
 });
 /*
@@ -172,11 +177,11 @@ bot.on('raw', packet => {
     });
 });
 */
-
+/*
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
-        /*
+        
         let role = reaction.message.mentions.roles.first();
         console.log(role);
         //console.log(user.id);
@@ -185,8 +190,8 @@ bot.on('messageReactionAdd', (reaction, user) => {
         //console.log(servers.members.get(user.id));
         const reactor = servers.members.get(user.id);
         //reactor.member.roles.add(role);
-        */
-        GuildMemberManager.fetch()
+        
+
         let server = bot.guilds.cache.get('757737687921852496')
         var memberRole = server.roles.cache.find(role => role.name === "monnik")
         let member = server.members.cache.get(user.id)
@@ -194,3 +199,4 @@ bot.on('messageReactionAdd', (reaction, user) => {
         member.roles.add(memberRole)
     }
 });
+*/
