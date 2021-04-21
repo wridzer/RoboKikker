@@ -147,7 +147,6 @@ bot.on('message', msg => {
   {
       let role = reaction.message.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
-
       taggedMember.roles.add(role);
 
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
@@ -177,8 +176,9 @@ bot.on('raw', packet => {
     });
 });
 */
-/*
+
 bot.on('messageReactionAdd', (reaction, user) => {
+    /*
     if(reaction.emoji.name === "✔️")
     {
         
@@ -197,6 +197,5 @@ bot.on('messageReactionAdd', (reaction, user) => {
         let member = server.members.cache.get(user.id)
 
         member.roles.add(memberRole)
-    }
+    }*/
 });
-*/
