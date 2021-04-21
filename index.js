@@ -143,7 +143,7 @@ bot.on('message', msg => {
     msg.delete(1000);
     });
   }
-  if(msg.content.startsWith('!role'))
+  /*if(msg.content.startsWith('!role'))
   {
       let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
@@ -151,11 +151,11 @@ bot.on('message', msg => {
       msg.author.member.roles.add(role);
 
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
-    /*const commandMessage = msg;
+    const commandMessage = msg;
     msg.react('✔️');
-    msg.react('❌');*/
+    msg.react('❌');
   }
-});
+});*/
 /*
 bot.on('raw', packet => {
     if (!initialized) return;
