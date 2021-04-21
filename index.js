@@ -147,8 +147,8 @@ bot.on('message', msg => {
   {
       let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
-      console.log(msg.author);
-      //msg.author.roles.add(role);
+      //console.log(role + taggedMember);
+      msg.author.member.roles.add(role);
 
     //var role = msg.guild.roles.find(role => role.name === "ArTisT");
     /*const commandMessage = msg;
