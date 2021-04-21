@@ -186,7 +186,10 @@ bot.on('messageReactionAdd', (reaction, user) => {
         const reactor = servers.members.get(user.id);
         //reactor.member.roles.add(role);
         */
-        var role = member.guild.roles.cache.find(role => role.name === "monnik");
-        member.roles.add(role);
+        let server = client.guilds.cache.get('757737687921852496')
+        var memberRole = server.roles.cache.find(role => role.name === "monnik")
+        let member = server.members.cache.get(user.id)
+
+        member.roles.add(memberRole)
     }
 });
