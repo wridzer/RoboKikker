@@ -142,7 +142,7 @@ bot.on('message', msg => {
         user.send('You have recieved an anonymous message:```' + message1 + "```"); 
     msg.delete(1000);
     });
-  }
+  });
   /*if(msg.content.startsWith('!role'))
   {
       let role = msg.mentions.roles.first();
