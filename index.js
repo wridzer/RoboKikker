@@ -22,18 +22,19 @@ bot.login(TOKEN.token);
 
 bot.on('message', msg => {
   //not respond to self or other bots
-  if (msg.author == bot.user){return}
-  if (msg.author.bot){return}
+  if (msg.author == bot.user) {
+    return
+  }
+  if (msg.author.bot) {
+    return
+  }
   //maar echt
-  if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496))
-  {
-      msg.channel.send('Maar echt');
+  if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496)) {
+    msg.channel.send('Maar echt');
   }
   //report command
-  if (msg.content.startsWith('!report'))
-  {
-    if (msg.mentions.users.size)
-    {
+  if (msg.content.startsWith('!report')) {
+    if (msg.mentions.users.size) {
       const taggedUser = msg.mentions.users.first();
       //let user = msg.guild.member(msg.mentions.users.first());
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
@@ -45,24 +46,20 @@ bot.on('message', msg => {
     }
   }
   //delete non quotes from quote channel
-  if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800)
-  {
+  if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800) {
     msg.delete(1000);
     msg.author.send(`this is not a quote, you freakin pancake`);
   }
   //stupid question
-  if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
-  {
+  if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
     const message1 = msg.content.substring(8, msg.content.length);
     msg.delete(1000);
     msg.channel.send(message1);
   }
-  if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895)
-  {
+  if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
     msg.delete(1000);
   }
-  if (!msg.content.startsWith('!anon') && msg.channel.id == 828625609554788352)
-  {
+  if (!msg.content.startsWith('!anon') && msg.channel.id == 828625609554788352) {
     msg.delete(1000);
     msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
   }
@@ -103,46 +100,43 @@ bot.on('message', msg => {
       msg.author.send('Please tag a valid user!');
     }
   }*/
-  if (msg.content.startsWith('!anon wridzer') || msg.content.startsWith('!anon Wridzer'))
-  {
+  if (msg.content.startsWith('!anon wridzer') || msg.content.startsWith('!anon Wridzer')) {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
     let user = client.fetchUser('402552605106241546')
-    .then(user => {
-        user.send('You have recieved an anonymous message:```' + message1 + "```");
-    msg.delete(1000);
-    });
+        .then(user => {
+          user.send('You have recieved an anonymous message:```' + message1 + "```");
+          msg.delete(1000);
+        });
   }
-  if (msg.content.startsWith('!anon ravi') || msg.content.startsWith('!anon Ravi'))
-  {
+  if (msg.content.startsWith('!anon ravi') || msg.content.startsWith('!anon Ravi')) {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
     let user = client.fetchUser('200954723962978304')
-    .then(user => {
-        user.send('You have recieved an anonymous message:```' + message1 + "```"); 
-    msg.delete(1000);
-    });
+        .then(user => {
+          user.send('You have recieved an anonymous message:```' + message1 + "```");
+          msg.delete(1000);
+        });
   }
-  if (msg.content.startsWith('!anon sophie') || msg.content.startsWith('!anon Sophie'))
-  {
+  if (msg.content.startsWith('!anon sophie') || msg.content.startsWith('!anon Sophie')) {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
     let user = client.fetchUser('319156673916960769')
-    .then(user => {
-        user.send('You have recieved an anonymous message:```' + message1 + "```"); 
-    msg.delete(1000);
-    });
+        .then(user => {
+          user.send('You have recieved an anonymous message:```' + message1 + "```");
+          msg.delete(1000);
+        });
   }
-  if (msg.content.startsWith('!anon roberto') || msg.content.startsWith('!anon Roberto'))
-  {
+  if (msg.content.startsWith('!anon roberto') || msg.content.startsWith('!anon Roberto')) {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
     let user = client.fetchUser('489711674815938560')
-    .then(user => {
-        user.send('You have recieved an anonymous message:```' + message1 + "```"); 
-    msg.delete(1000);
-    });
+        .then(user => {
+          user.send('You have recieved an anonymous message:```' + message1 + "```");
+          msg.delete(1000);
+        });
   }
+});
   /*if(msg.content.startsWith('!role'))
   {
       let role = msg.mentions.roles.first();
