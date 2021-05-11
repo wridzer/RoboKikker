@@ -142,7 +142,7 @@ bot.on('message', msg => {
         user.send('You have recieved an anonymous message:```' + message1 + "```"); 
     msg.delete(1000);
     });
-  });
+  }
   /*if(msg.content.startsWith('!role'))
   {
       let role = msg.mentions.roles.first();
@@ -197,5 +197,5 @@ bot.on('messageReactionAdd', (reaction, user) => {
         let member = server.members.cache.get(user.id)
 
         member.roles.add(memberRole)
-});
-*/
+});*/
+
