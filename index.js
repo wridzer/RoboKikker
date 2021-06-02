@@ -20,9 +20,6 @@ bot.on('ready', () => {
 bot.login(TOKEN.token);
 
 bot.on('message', async msg => {
-  msg.guild.members.fetch()
-      .then(console.log)
-      .catch(console.error);
   //not respond to self or other bots
   if (msg.author == bot.user) {
     return
@@ -140,6 +137,7 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
+    msg.guild.fetch();
     var role= msg.guild.roles.cache.find(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
