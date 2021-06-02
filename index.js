@@ -14,8 +14,8 @@ var initialized = false;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.users.get("id", 11238414);
-  bot.channels.getAll("name", "general");
+  Client.users.get("id", 11238414);
+  Client.channels.getAll("name", "general");
   initialized = true;
 });
 
