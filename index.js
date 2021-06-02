@@ -14,14 +14,12 @@ var initialized = false;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  Client.users.get("id", 11238414);
-  Client.channels.getAll("name", "general");
   initialized = true;
 });
 
 bot.login(TOKEN.token);
 
-bot.on('message', msg => {
+bot.on('message', async msg => {
   //not respond to self or other bots
   if (msg.author == bot.user) {
     return
