@@ -14,15 +14,15 @@ var initialized = false;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.guild.members.fetch()
-      .then(console.log)
-      .catch(console.error);
   initialized = true;
 });
 
 bot.login(TOKEN.token);
 
 bot.on('message', async msg => {
+  msg.guild.members.fetch()
+      .then(console.log)
+      .catch(console.error);
   //not respond to self or other bots
   if (msg.author == bot.user) {
     return
