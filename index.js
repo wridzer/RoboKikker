@@ -14,7 +14,9 @@ var initialized = false;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  GuildMemberManager.fetch();
+  guild.members.fetch()
+      .then(console.log)
+      .catch(console.error);
   initialized = true;
 });
 
