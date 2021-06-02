@@ -139,7 +139,7 @@ bot.on('message', msg => {
   if(msg.content.startsWith('!role'))
   {
     let role = msg.mentions.roles.first();
-    msg.author.member.roles.add(role);
+    msg.author.member.addRole(role);
     /*
       let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
