@@ -7,6 +7,9 @@ const port = process.env.PORT || 5000;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
+  bot.guilds.cache.forEach(g => {
+    g.roles.fetch();
+  });
 });
 
 
