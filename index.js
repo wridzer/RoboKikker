@@ -1,16 +1,13 @@
 ﻿require('dotenv').config();
 const Discord = require('discord.js');
 const Intents = new Discord.Intents();
-const bot = new Discord.Client({Intents: Intents.ALL});
+const bot = new Discord.Client({Intents: Discord.Intents.ALL});
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.guilds.cache.forEach(g => {
-    g.roles.fetch();
-  });
 });
 
 bot.login(TOKEN.token);
