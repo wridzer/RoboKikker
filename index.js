@@ -129,7 +129,6 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    msg.guild.fetch();
     var role= msg.guild.roles.cache.find(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
