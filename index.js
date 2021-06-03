@@ -9,6 +9,7 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
+bot.login(TOKEN.token);
 
 bot.on('message', async msg => {
   //not respond to self or other bots
@@ -147,7 +148,6 @@ bot.on('message', async msg => {
 });
 
 
-bot.login(TOKEN.token);
 /*
 bot.on('raw', packet => {
     if (!initialized) return;
