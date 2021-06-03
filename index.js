@@ -126,6 +126,7 @@ bot.on('message', async msg => {
           msg.delete(1000);
         });
   }
+  console.log(msg.guild.id);
   if(msg.content.startsWith('!role'))
   {
     const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
