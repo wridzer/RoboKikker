@@ -9,7 +9,6 @@ bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-bot.login(TOKEN.token);
 
 bot.on('message', async msg => {
   //not respond to self or other bots
@@ -127,6 +126,7 @@ bot.on('message', async msg => {
           msg.delete(1000);
         });
   }
+  console.log(msg);
   if(msg.content.startsWith('!role'))
   {
     var role= msg.guild.roles.cache.find(role => role.name === "ArTisT");
@@ -143,6 +143,9 @@ bot.on('message', async msg => {
     msg.react('❌');*/
   }
 });
+
+
+bot.login(TOKEN.token);
 /*
 bot.on('raw', packet => {
     if (!initialized) return;
