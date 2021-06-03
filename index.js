@@ -1,20 +1,12 @@
 ﻿require('dotenv').config();
 const Discord = require('discord.js');
-const bot = new Discord.Client(/*{
-    partials: ["REACTION", "MESSAGE"],
-    ws: {
-        intents: ["GUILD_MEMBERS", "GUILDS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"]
-    }
-}*/);
+const bot = new Discord.Client();
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
 
-var initialized = false;
-
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  initialized = true;
 });
 
 bot.login(TOKEN.token);
@@ -177,17 +169,6 @@ bot.on('raw', packet => {
 bot.on('messageReactionAdd', (reaction, user) => {
     if(reaction.emoji.name === "✔️")
     {
-        
-        let role = reaction.message.mentions.roles.first();
-        console.log(role);
-        //console.log(user.id);
-        //let reactMember = bot.guilds.get(user.id)
-        const servers = bot.guilds.get('757737687921852496');
-        //console.log(servers.members.get(user.id));
-        const reactor = servers.members.get(user.id);
-        //reactor.member.roles.add(role);
-        
-
         let server = bot.guilds.cache.get('757737687921852496')
         var memberRole = server.roles.cache.find(role => role.name === "monnik")
         let member = server.members.cache.get(user.id)
