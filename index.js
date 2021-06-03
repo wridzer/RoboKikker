@@ -7,9 +7,6 @@ const port = process.env.PORT || 5000;
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.guilds.cache.forEach(g => {
-    g.roles.fetch();
-  });
 });
 
 
@@ -129,9 +126,11 @@ bot.on('message', async msg => {
           msg.delete(1000);
         });
   }
-  console.log(msg.guild.id);
   if(msg.content.startsWith('!role'))
   {
+    msg.guild.cache.forEach(g => {
+      g.roles.fetch();
+    });
     const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
