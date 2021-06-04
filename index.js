@@ -140,12 +140,12 @@ bot.on('message', async msg => {
   {
     await msg.delete();
     const rolemsg = await msg.channel.send('You already know how it works! just react with the emoji corresponding to the role you want and you get it!' +
-        '\\n🎨 for the artist role' +
-        '\\n🍿 for the live role' +
-        '\\n🟩 for the minecraft role' +
-        '\\n🔫 for the valorant role' +
-        '\\n🧟 for the unturned role' +
-        '\\n📦 for the jackbox role');
+        '\n🎨 for the artist role' +
+        '\n🍿 for the live role' +
+        '\n🟩 for the minecraft role' +
+        '\n🔫 for the valorant role' +
+        '\n🧟 for the unturned role' +
+        '\n📦 for the jackbox role');
     commandMessage = rolemsg;
     artistRole = msg.guild.roles.cache.find(role => role.name === "ArTisT");
     liveRole = msg.guild.roles.cache.find(role => role.name === "Live");
