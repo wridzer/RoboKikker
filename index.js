@@ -1,6 +1,6 @@
 ﻿require('dotenv').config();
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
