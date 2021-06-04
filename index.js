@@ -16,7 +16,7 @@ bot.on('ready', () => {
 
 bot.on('message', async msg => {
   //not respond to self or other bots
-  if (msg.author == bot.user) {
+  if (msg.author === bot.user) {
     return
   }
   if (msg.author.bot) {
@@ -24,7 +24,7 @@ bot.on('message', async msg => {
   }
   //maar echt
   if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496)) {
-    msg.channel.send('Maar echt');
+    await msg.channel.send('Maar echt');
   }
   //report command
   if (msg.content.startsWith('!report')) {
@@ -36,26 +36,26 @@ bot.on('message', async msg => {
       //user.voice.setChannel(strafhoek);
       msg.guild.member(taggedUser.id).voice.setChannel(msg.guild.channels.find(channel => channel.name === "Slaapkanaal").toString());
     } else {
-      msg.reply('Please tag a valid user!');
+      await msg.reply('Please tag a valid user!');
     }
   }
   //delete non quotes from quote channel
   if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800) {
-    msg.delete(1000);
-    msg.author.send(`this is not a quote, you freakin pancake`);
+    await msg.delete(1000);
+    await msg.author.send(`this is not a quote, you freakin pancake`);
   }
   //stupid question
   if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
     const message1 = msg.content.substring(8, msg.content.length);
-    msg.delete(1000);
-    msg.channel.send(message1);
+    await msg.delete(1000);
+    await msg.channel.send(message1);
   }
   if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
-    msg.delete(1000);
+    await msg.delete(1000);
   }
   if (!msg.content.startsWith('!anon') && msg.channel.id == 828625609554788352) {
-    msg.delete(1000);
-    msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
+    await msg.delete(1000);
+    await msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
   }
   //delete non pics from pet/froggy channel
   /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
@@ -133,7 +133,7 @@ bot.on('message', async msg => {
   if(msg.content.startsWith('!role'))
   {
     let commandMessage = msg;
-    msg.react('✔️');
+    await msg.react('✔️');
   }
 });
 
@@ -150,10 +150,10 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       return;
     }
   }
-  if(reaction.emoji.name === "✔️")
+  if(reaction.emoji.name === "✔️" && reaction.message === commandMessage)
   {
-    let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
-    msg.member.roles.add(role);
+    let role = reaction.guild.roles.cache.find(role => role.name === "ArTisT");
+    await reaction.member.roles.add(role);
   }
 });
 
