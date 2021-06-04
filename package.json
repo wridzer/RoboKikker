@@ -10,7 +10,7 @@
   "author": "Wridzer Kamphuis",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "discord.js": "^12.5.3",
     "dotenv": "^8.2.0"
   }
 }
