@@ -132,7 +132,7 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    bot.guilds.get(yewID).member(msg.author).role.add(artistRole);
+    client.guilds.get(yewID).member(msg.author).role.add(artistRole);
     //let role = msg.mentions.roles.first();
     //console.log(role);
     //msg.author.roles.add(role);
