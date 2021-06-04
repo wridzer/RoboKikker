@@ -6,7 +6,7 @@ const TOKEN = require('./config.json');
 const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
-const artistRole = '831547671110090774';
+let commandMessage;
 
 bot.login(TOKEN.token);
 
@@ -132,52 +132,17 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    //let role = msg.mentions.roles.first();
-    //console.log(role);
-    let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
-    msg.member.roles.add(role);
-    /*
-      let role = msg.mentions.roles.first();
-      const taggedMember = msg.mentions.members.first();
-      //console.log(role + taggedMember);
-      
-
-    //var role = msg.guild.roles.find(role => role.name === "ArTisT");
-    const commandMessage = msg;
+    let commandMessage = msg;
     msg.react('✔️');
-    msg.react('❌');*/
   }
 });
 
-/*
-bot.on('raw', packet => {
-    if (!initialized) return;
-    if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
-    (async () => {
-        //const channel = bot.channels.cache.get(packet.d.channel_id);
-        const channel = bot.guilds.get('757737687921852496').channels.get(packet.d.channel_id);
-        console.log(servers.members.fetch(user.id));
-        channel.messages.fetch(packet.d.message_id).then(message => {
-            const servers = bot.guilds.cache.get(packet.d.guild_id);
-            if (packet.t === 'MESSAGE_REACTION_ADD'){
-                if(packet.d.emoji.name === "✔️"){
-                    const servers = bot.guilds.get('757737687921852496');
-                    let role = reaction.message.guild.roles.find(role => role.id == '831547671110090774');
-                    servers.members.fetch(user.id).then(member => member.roles.add(role)).catch(console.error);
-                }
-            }
-        });
-    });
-});
-*/
-/*
-bot.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "✔️")
-    {
-        let server = bot.guilds.cache.get('757737687921852496')
-        var memberRole = server.roles.cache.find(role => role.name === "monnik")
-        let member = server.members.cache.get(user.id)
 
-        member.roles.add(memberRole)
-});*/
+bot.on('messageReactionAdd', (reaction, user) => {
+    if(reaction.emoji.name === "✔️" && reaction.message === commandMessage)
+    {
+      let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
+      msg.member.roles.add(role);
+    }
+});
 
