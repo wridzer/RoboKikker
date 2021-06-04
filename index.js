@@ -162,7 +162,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
     const guild = reaction.message.guild;
-    const memberWhoReacted = guild.members.find(member => member.id === user.id);
+    const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
     await memberWhoReacted.roles.add(role);
   }
 });
