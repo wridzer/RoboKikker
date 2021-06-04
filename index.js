@@ -160,7 +160,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
     let role = reaction.guild.roles.cache.find(role => role.name === "ArTisT");
-    await user.member.roles.add(role);
+    await user.roles.add(role);
   }
 });
 
