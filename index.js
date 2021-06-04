@@ -138,19 +138,27 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    commandMessage = msg;
+    await msg.delete(1000);
+    const rolemsg = await msg.channel.send('You already know how it works! just react with the emoji corresponding to the role you want and you get it!' +
+        '🎨 for the artist role' +
+        '🍿 for the live role' +
+        '🟩 for the minecraft role' +
+        '🔫 for the valorant role' +
+        '🧟 for the unturned role' +
+        '📦 for the jackbox role');
+    commandMessage = rolemsg;
     artistRole = msg.guild.roles.cache.find(role => role.name === "ArTisT");
     liveRole = msg.guild.roles.cache.find(role => role.name === "Live");
     MCRole = msg.guild.roles.cache.find(role => role.name === "Minecraft");
     valoRole = msg.guild.roles.cache.find(role => role.name === "Valorant");
     unturnedRole = msg.guild.roles.cache.find(role => role.name === "Unturned");
     jackRole = msg.guild.roles.cache.find(role => role.name === "Jackbox");
-    await msg.react('🎨');
-    await msg.react('🍿');
-    await msg.react('🟩');
-    await msg.react('🔫');    
-    await msg.react('🧟');
-    await msg.react('📦');
+    await rolemsg.react('🎨');
+    await rolemsg.react('🍿');
+    await rolemsg.react('🟩');
+    await rolemsg.react('🔫');    
+    await rolemsg.react('🧟');
+    await rolemsg.react('📦');
   }
 });
 
