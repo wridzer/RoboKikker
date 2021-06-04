@@ -138,11 +138,24 @@ bot.on('message', async msg => {
 });
 
 
-bot.on('messageReactionAdd', (reaction, user) => {
-    if(reaction.emoji.name === "✔️" && reaction.message === commandMessage)
-    {
-      let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
-      msg.member.roles.add(role);
+bot.on('messageReactionAdd', async (reaction, user) => {
+  // When a reaction is received, check if the structure is partial
+  if (reaction.partial) {
+    // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+    try {
+      await reaction.fetch();
+    } catch (error) {
+      console.error('Something went wrong when fetching the message: ', error);
+      // Return as `reaction.message.author` may be undefined/null
+      return;
     }
+  }
+  if(reaction.emoji.name === "✔️")
+  {
+    let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
+    msg.member.roles.add(role);
+  }
 });
+
+
 
