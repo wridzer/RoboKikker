@@ -185,6 +185,8 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     return
   }
   if (reaction.user.id === '246993900118605825') {
+    let botsop = client.fetchUser('246993900118605825')
+    botsop.send('jij mag geen rol');
     return
   }
   
