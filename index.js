@@ -7,11 +7,11 @@ const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
 
+bot.login(TOKEN.token);
+
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
-
-bot.login(TOKEN.token);
 
 bot.on('message', async msg => {
   //not respond to self or other bots
@@ -131,9 +131,6 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    bot.channels.fetch(yewID).then(channel => {
-      const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
-    })
     //const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
