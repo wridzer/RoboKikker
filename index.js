@@ -1,7 +1,8 @@
 ﻿require('dotenv').config();
-const Discord = require('discord.js');
-const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require("constants");
-const bot = new Discord.Client();
+import { Client, Intents } from "discord.js";
+let intents = new Intents(Intents.NON_PRIVILEGED);
+intents.add('GUILD_MEMBERS');
+export const bot: Client = new Client({ ws: {intents: intents} });
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
