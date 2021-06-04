@@ -184,6 +184,9 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if (user.bot) {
     return
   }
+  if (reaction.user.id === '246993900118605825') {
+    return
+  }
   
   //Add role
   if(reaction.message === commandMessage)
