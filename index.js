@@ -178,7 +178,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   }
   
   //Add role
-  if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
+  if(reaction.message === commandMessage)
   {
     let roleToAdd;
     switch(reaction.emoji.name)
