@@ -47,20 +47,20 @@ bot.on('message', async msg => {
   }
   //delete non quotes from quote channel
   if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800) {
-    await msg.delete(1000);
+    await msg.delete();
     await msg.author.send(`this is not a quote, you freakin pancake`);
   }
   //stupid question
   if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
     const message1 = msg.content.substring(8, msg.content.length);
-    await msg.delete(1000);
+    await msg.delete();
     await msg.channel.send(message1);
   }
   if (!msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
-    await msg.delete(1000);
+    await msg.delete();
   }
   if (!msg.content.startsWith('!anon') && msg.channel.id == 828625609554788352) {
-    await msg.delete(1000);
+    await msg.delete();
     await msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
   }
   //delete non pics from pet/froggy channel
@@ -106,7 +106,7 @@ bot.on('message', async msg => {
     let user = client.fetchUser('402552605106241546')
         .then(user => {
           user.send('You have recieved an anonymous message:```' + message1 + "```");
-          msg.delete(1000);
+          msg.delete();
         });
   }
   if (msg.content.startsWith('!anon ravi') || msg.content.startsWith('!anon Ravi')) {
@@ -115,7 +115,7 @@ bot.on('message', async msg => {
     let user = client.fetchUser('200954723962978304')
         .then(user => {
           user.send('You have recieved an anonymous message:```' + message1 + "```");
-          msg.delete(1000);
+          msg.delete();
         });
   }
   if (msg.content.startsWith('!anon sophie') || msg.content.startsWith('!anon Sophie')) {
@@ -124,7 +124,7 @@ bot.on('message', async msg => {
     let user = client.fetchUser('319156673916960769')
         .then(user => {
           user.send('You have recieved an anonymous message:```' + message1 + "```");
-          msg.delete(1000);
+          msg.delete();
         });
   }
   if (msg.content.startsWith('!anon roberto') || msg.content.startsWith('!anon Roberto')) {
@@ -133,12 +133,12 @@ bot.on('message', async msg => {
     let user = client.fetchUser('489711674815938560')
         .then(user => {
           user.send('You have recieved an anonymous message:```' + message1 + "```");
-          msg.delete(1000);
+          msg.delete();
         });
   }
   if(msg.content.startsWith('!role'))
   {
-    await msg.delete(1000);
+    await msg.delete();
     const rolemsg = await msg.channel.send('You already know how it works! just react with the emoji corresponding to the role you want and you get it!' +
         '🎨 for the artist role' +
         '🍿 for the live role' +
