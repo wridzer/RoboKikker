@@ -149,7 +149,6 @@ bot.on('message', async msg => {
   }
 });
 
-
 /*
 bot.on('raw', packet => {
     if (!initialized) return;
