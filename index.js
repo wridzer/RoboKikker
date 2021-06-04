@@ -161,7 +161,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   }
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
-    await user.roles.add(role);
+    await reaction.member.roles.add(role);
   }
 });
 
