@@ -150,10 +150,17 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       return;
     }
   }
+  //not respond to self or other bots
+  if (reaction.user === bot.user) {
+    return
+  }
+  if (reaction.user.bot) {
+    return
+  }
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
     let role = reaction.guild.roles.cache.find(role => role.name === "ArTisT");
-    await reaction.message.member.roles.add(role);
+    await user.member.roles.add(role);
   }
 });
 
