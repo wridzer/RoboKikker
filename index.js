@@ -131,7 +131,7 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    bot.channels.fetch(roleAssignChannelID).then(channel => {let role = msg.guild.roles.cache.fetch(role => role.name === "ArTisT")});
+    bot.channels.fetch(yewID).then(channel => {let role = msg.guild.roles.cache.fetch(role => role.name === "ArTisT")});
     //const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
