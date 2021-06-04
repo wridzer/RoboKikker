@@ -7,7 +7,12 @@ const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
 let commandMessage;
-let role;
+let artistRole;
+let liveRole;
+let MCRole;
+let valoRole;
+let unturnedRole;
+let jackRole;
 
 bot.login(TOKEN.token);
 
@@ -134,13 +139,25 @@ bot.on('message', async msg => {
   if(msg.content.startsWith('!role'))
   {
     commandMessage = msg;
-    role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
-    await msg.react('✔');
+    artistRole = msg.guild.roles.cache.find(role => role.name === "ArTisT");
+    liveRole = msg.guild.roles.cache.find(role => role.name === "Live");
+    MCRole = msg.guild.roles.cache.find(role => role.name === "Minecraft");
+    valoRole = msg.guild.roles.cache.find(role => role.name === "Valorant");
+    unturnedRole = msg.guild.roles.cache.find(role => role.name === "Unturned");
+    jackRole = msg.guild.roles.cache.find(role => role.name === "Jackbox");
+    await msg.react('🎨');
+    await msg.react('🍿');
+    await msg.react('🟩');
+    await msg.react('🔫');    
+    await msg.react('🧟');
+    await msg.react('📦');
   }
 });
 
 
 bot.on('messageReactionAdd', async (reaction, user) => {
+  const guild = reaction.message.guild;
+  const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
   // When a reaction is received, check if the structure is partial
   if (reaction.partial) {
     // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
@@ -159,11 +176,21 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if (user.bot) {
     return
   }
+  
+  //Add role
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
-    const guild = reaction.message.guild;
-    const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
-    await memberWhoReacted.roles.add(role);
+    let roleToAdd;
+    switch(reaction.emoji.name)
+    {
+      case '🎨': roleToAdd = artistRole; break;
+      case '🍿': roleToAdd = liveRole; break;
+      case '🟩': roleToAdd = MCRole; break;
+      case '🔫': roleToAdd = valoRole; break;
+      case '🧟': roleToAdd = unturnedRole; break;
+      case '📦': roleToAdd = jackRole; break;
+    }
+    await memberWhoReacted.roles.add(reactionToAdd);
   }
 });
 
