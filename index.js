@@ -6,6 +6,7 @@ const TOKEN = require('./config.json');
 const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
+let botsop = client.fetchUser('246993900118605825')
 let commandMessage;
 let artistRole;
 let liveRole;
@@ -184,12 +185,11 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if (user.bot) {
     return
   }
-  /*
-  if (reaction.user.id === '246993900118605825') {
-    let botsop = client.fetchUser('246993900118605825')
+  
+  if (reaction.user === botsop.user) {
     botsop.send('jij mag geen rol');
     return
-  }*/
+  }
   
   //Add role
   if(reaction.message === commandMessage)
