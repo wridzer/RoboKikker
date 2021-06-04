@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) }});
 const TOKEN = require('./config.json');
-//const cron = require('cron');
+const cron = require('cron');
 
 const port = process.env.PORT || 5000;
 
@@ -20,7 +20,7 @@ bot.login(TOKEN.token);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  /*const job = new cron.CronJob('0 0 8 * * *', () => {
+  const job = new cron.CronJob('0 0 8 * * *', () => {
     const yew = bot.guilds.get(yewID);
     let user = yew.guild.members.random();
     const Role = yew.guild.roles.cache.get(pannenkoekrol);
@@ -30,7 +30,7 @@ bot.on('ready', () => {
       }, i * 1000);
     });
     user.roles.add(pannenkoekrol);
-  });*/
+  });
 });
 
 bot.on('message', async msg => {
