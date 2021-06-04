@@ -132,8 +132,8 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    let commandMessage = msg;
-    await msg.react('✔️');
+    commandMessage = msg;
+    await msg.react('✔');
   }
 });
 
@@ -150,7 +150,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       return;
     }
   }
-  if(reaction.emoji.name === "✔️" && reaction.message === commandMessage)
+  if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
     let role = reaction.guild.roles.cache.find(role => role.name === "ArTisT");
     await reaction.member.roles.add(role);
