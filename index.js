@@ -187,7 +187,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
 //246993900118605825
   let client = reaction.message.channel.client;
   let botsop = client.users.cache.get('402552605106241546')
-  if (reaction.user === botsop.user) {
+  if (reaction.user === botsop) {
     botsop.send('jij mag geen rol');
     return
   }
