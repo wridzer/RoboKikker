@@ -193,12 +193,10 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     //BotsOp mag geen rollen
     let client = reaction.message.channel.client;
     let botsop = client.users.cache.get('402552605106241546')
-    console.log(botsop);
-    console.log(reaction.user);
-    /*if (reaction.user === botsop.id) {
+    if (memberWhoReacted.id === botsop.id) {
       botsop.send('jij mag geen rol');
       return
-    }*/
+    }
   
     let roleToAdd;
     switch(reaction.emoji.name)
