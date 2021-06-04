@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const { Client, Intents } = require("discord.js");
 
 client = new Client({
-  ws: { intents: Intents.ALL },
+  ws: { intents: [Intents.NON_PRIVILEGED, "GUILD_MEMBERS"] },
 });
 
 const TOKEN = require('./config.json');
