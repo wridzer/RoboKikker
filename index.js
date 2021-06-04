@@ -132,8 +132,8 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    const role= msg.guild.roles.cache.find(artistRole);
-    msg.author.member.addRole(role);
+    var role= member.guild.roles.cache.find(role => role.name === "role name");
+    msg.author.roles.add(role);
     /*
       let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
