@@ -2,7 +2,7 @@
 const Discord = require("discord.js");
 const { Client, Intents } = require("discord.js");
 
-client = new BotClient({
+client = new Client({
   ws: { intents: Intents.ALL },
 });
 
