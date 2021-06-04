@@ -185,16 +185,21 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     return
   }
 //246993900118605825
-  let client = reaction.message.channel.client;
-  let botsop = client.users.cache.get('402552605106241546')
-  if (reaction.user === botsop) {
-    botsop.send('jij mag geen rol');
-    return
-  }
+
   
   //Add role
   if(reaction.message === commandMessage)
   {
+    //BotsOp mag geen rollen
+    let client = reaction.message.channel.client;
+    let botsop = client.users.cache.get('402552605106241546')
+    console.log(botsop);
+    console.log(reaction.user);
+    /*if (reaction.user === botsop.id) {
+      botsop.send('jij mag geen rol');
+      return
+    }*/
+  
     let roleToAdd;
     switch(reaction.emoji.name)
     {
