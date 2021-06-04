@@ -132,10 +132,10 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    client.guilds.get(yewID).member(msg.author).role.add(artistRole);
     //let role = msg.mentions.roles.first();
     //console.log(role);
-    //msg.author.roles.add(role);
+    let role = msg.guild.roles.cache.find(artistRole);
+    msg.author.roles.add(role);
     /*
       let role = msg.mentions.roles.first();
       const taggedMember = msg.mentions.members.first();
