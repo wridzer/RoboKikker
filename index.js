@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
 let commandMessage;
+let role;
 
 bot.login(TOKEN.token);
 
@@ -133,6 +134,7 @@ bot.on('message', async msg => {
   if(msg.content.startsWith('!role'))
   {
     commandMessage = msg;
+    role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
     await msg.react('✔');
   }
 });
@@ -159,7 +161,6 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   }
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
   {
-    let role = reaction.guild.roles.cache.find(role => role.name === "ArTisT");
     await user.roles.add(role);
   }
 });
