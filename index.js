@@ -184,7 +184,6 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if (user.bot) {
     return
   }
-//246993900118605825
 
   
   //Add role
@@ -192,7 +191,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   {
     //BotsOp mag geen rollen
     let client = reaction.message.channel.client;
-    let botsop = client.users.cache.get('402552605106241546')
+    let botsop = client.users.cache.get('246993900118605825')
     if (memberWhoReacted.id === botsop.id) {
       botsop.send('jij mag geen rol');
       return
