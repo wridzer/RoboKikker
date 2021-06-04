@@ -1,21 +1,24 @@
 ﻿require('dotenv').config();
-import { Client, Intents } from "discord.js";
-let intents = new Intents(Intents.NON_PRIVILEGED);
-intents.add('GUILD_MEMBERS');
-export const bot: Client = new Client({ ws: {intents: intents} });
+const Discord = require("discord.js");
+const { Client, Intents } = require("discord.js");
+
+client = new BotClient({
+  ws: { intents: Intents.ALL },
+});
+
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
 
-bot.login(TOKEN.token);
+client.login(TOKEN.token);
 
-bot.on('ready', () => {
+client.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-bot.on('message', async msg => {
+client.on('message', async msg => {
   //not respond to self or other bots
   if (msg.author == bot.user) {
     return
@@ -150,7 +153,7 @@ bot.on('message', async msg => {
 
 
 /*
-bot.on('raw', packet => {
+client.on('raw', packet => {
     if (!initialized) return;
     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
     (async () => {
