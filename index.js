@@ -1,6 +1,6 @@
 ﻿require('dotenv').config();
-const discord = require('discord.js');
-const bot = new discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
@@ -131,6 +131,7 @@ bot.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
+    client.channels.fetch(roleAssignChannelID).then(channel => {let role = msg.guild.roles.cache.fetch(role => role.name === "ArTisT")});
     //const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
     msg.author.member.addRole(role);
     /*
