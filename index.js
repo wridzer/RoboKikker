@@ -190,7 +190,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       case '🧟': roleToAdd = unturnedRole; break;
       case '📦': roleToAdd = jackRole; break;
     }
-    await memberWhoReacted.roles.add(reactionToAdd);
+    await memberWhoReacted.roles.add(roleToAdd);
   }
 });
 
