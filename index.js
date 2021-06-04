@@ -2,6 +2,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) }});
 const TOKEN = require('./config.json');
+const cron = require('cron');
 
 const port = process.env.PORT || 5000;
 
@@ -13,11 +14,23 @@ let MCRole;
 let valoRole;
 let unturnedRole;
 let jackRole;
+let pannenkoekrol;
 
 bot.login(TOKEN.token);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
+  const job = new cron.CronJob('0 0 8 * * *', () => {
+    const yew = bot.guilds.get(yewID);
+    let user = yew.guild.members.random();
+    const Role = yew.guild.roles.cache.get(pannenkoekrol);
+    Role.members.forEach((member, i) => { // Looping through the members of Role.
+      setTimeout(() => {
+        member.roles.remove(Role); // Removing the Role.
+      }, i * 1000);
+    });
+    user.roles.add(pannenkoekrol);
+  });
 });
 
 bot.on('message', async msg => {
@@ -63,43 +76,7 @@ bot.on('message', async msg => {
     await msg.delete();
     await msg.author.send(`U used the command wrong, please start with !anon and than the name of the classrep. For example:\`\`\` !anon wridzer \`\`\` `);
   }
-  //delete non pics from pet/froggy channel
-  /*if ((!msg.attachments.size > 0) && (msg.channel.id == 827317762460221481 || msg.channel.id == 827659850065379338))
-  {
-    msg.delete(1000);
-    msg.author.send(`stop doing this plz`);
-  }*/
-  //anon command
-  /*if (msg.content.startsWith('!anon'))
-  {
-    if (msg.mentions.users.size)
-    {
-      const taggedUser = msg.mentions.users.first();
-      if(taggedUser == bot.user)
-      {
-        msg.author.send(`Fuck off! :middle_finger:`);
-      }
-      var i;
-      for(const element of classreps)
-      {
-        if(element == taggedUser.id)
-        {
-          const message1 = msg.content.substring(28, msg.content.length);
-          taggedUser.send(message1);
-          isSend = true;
-        }
-      }
-      if (!isSend)
-      {
-        msg.author.send('Please tag a valid user!');
-      }
-      msg.delete(1000);
-      isSend = false;
-    } else {
-      msg.delete(1000);
-      msg.author.send('Please tag a valid user!');
-    }
-  }*/
+  //Anon classrep
   if (msg.content.startsWith('!anon wridzer') || msg.content.startsWith('!anon Wridzer')) {
     const message1 = msg.content.substring(14, msg.content.length);
     let client = msg.channel.client;
@@ -136,6 +113,7 @@ bot.on('message', async msg => {
           msg.delete();
         });
   }
+  //roles
   if(msg.content.startsWith('!role'))
   {
     await msg.delete();
@@ -162,7 +140,7 @@ bot.on('message', async msg => {
   }
 });
 
-
+//reaction
 bot.on('messageReactionAdd', async (reaction, user) => {
   const guild = reaction.message.guild;
   const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
