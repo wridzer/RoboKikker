@@ -1,24 +1,20 @@
 ﻿require('dotenv').config();
-const Discord = require("discord.js");
-const { Client, Intents } = require("discord.js");
-
-client = new Client({
-  ws: { intents: [Intents.NON_PRIVILEGED, "GUILD_MEMBERS"] },
-});
-
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 const TOKEN = require('./config.json');
 
 const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
+const artistRole = '831547671110090774';
 
-client.login(TOKEN.token);
+bot.login(TOKEN.token);
 
-client.on('ready', () => {
+bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
 });
 
-client.on('message', async msg => {
+bot.on('message', async msg => {
   //not respond to self or other bots
   if (msg.author == bot.user) {
     return
@@ -136,7 +132,7 @@ client.on('message', async msg => {
   }
   if(msg.content.startsWith('!role'))
   {
-    const role= msg.guild.roles.cache.get(role => role.name === "ArTisT");
+    const role= bot.role.fetch(artistRole);
     msg.author.member.addRole(role);
     /*
       let role = msg.mentions.roles.first();
@@ -153,7 +149,7 @@ client.on('message', async msg => {
 
 
 /*
-client.on('raw', packet => {
+bot.on('raw', packet => {
     if (!initialized) return;
     if (!['MESSAGE_REACTION_ADD', 'MESSAGE_REACTION_REMOVE'].includes(packet.t)) return;
     (async () => {
