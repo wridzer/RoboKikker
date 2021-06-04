@@ -134,7 +134,7 @@ bot.on('message', async msg => {
   {
     //let role = msg.mentions.roles.first();
     //console.log(role);
-    let role = msg.guild.roles.find(role => role.name === "ArTisT");
+    let role = msg.guild.roles.cache.find(role => role.name === "ArTisT");
     msg.member.roles.add(role);
     /*
       let role = msg.mentions.roles.first();
