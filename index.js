@@ -154,7 +154,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   if (reaction.user === bot.user) {
     return
   }
-  if (reaction.user.bot) {
+  if (user.bot) {
     return
   }
   if(reaction.emoji.name === "✔" && reaction.message === commandMessage)
