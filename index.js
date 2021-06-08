@@ -124,7 +124,7 @@ bot.on('message', async msg => {
         '\n🔫 for the valorant role' +
         '\n🧟 for the unturned role' +
         '\n📦 for the jackbox role');
-    commandMessage = rolemsg;
+    commandMessageChannel = rolemsg.channel;
     artistRole = msg.guild.roles.cache.find(role => role.name === "ArTisT");
     liveRole = msg.guild.roles.cache.find(role => role.name === "Live");
     MCRole = msg.guild.roles.cache.find(role => role.name === "Minecraft");
@@ -165,7 +165,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
 
   
   //Add role
-  if(reaction.message === commandMessage)
+  if(reaction.channel === commandMessageChannel)
   {
     //BotsOp mag geen rollen
     let client = reaction.message.channel.client;
