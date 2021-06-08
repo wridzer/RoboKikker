@@ -7,7 +7,6 @@ const cron = require('cron');
 const port = process.env.PORT || 5000;
 
 const yewID = '757737687921852496';
-let commandMessage;
 let artistRole;
 let liveRole;
 let MCRole;
@@ -124,13 +123,6 @@ bot.on('message', async msg => {
         '\n🔫 for the valorant role' +
         '\n🧟 for the unturned role' +
         '\n📦 for the jackbox role');
-    commandMessageChannel = rolemsg.channel;
-    artistRole = msg.guild.roles.cache.find(role => role.name === "ArTisT");
-    liveRole = msg.guild.roles.cache.find(role => role.name === "Live");
-    MCRole = msg.guild.roles.cache.find(role => role.name === "Minecraft");
-    valoRole = msg.guild.roles.cache.find(role => role.name === "Valorant");
-    unturnedRole = msg.guild.roles.cache.find(role => role.name === "Unturned");
-    jackRole = msg.guild.roles.cache.find(role => role.name === "Jackbox");
     await rolemsg.react('🎨');
     await rolemsg.react('🍿');
     await rolemsg.react('🟩');
@@ -142,6 +134,14 @@ bot.on('message', async msg => {
 
 //reaction
 bot.on('messageReactionAdd', async (reaction, user) => {
+  //Get roles
+  artistRole = reaction.message.guild.roles.cache.find(role => role.name === "ArTisT");
+  liveRole = reaction.message.guild.roles.cache.find(role => role.name === "Live");
+  MCRole = reaction.message.guild.roles.cache.find(role => role.name === "Minecraft");
+  valoRole = reaction.message.guild.roles.cache.find(role => role.name === "Valorant");
+  unturnedRole = reaction.message.guild.roles.cache.find(role => role.name === "Unturned");
+  jackRole = reaction.message.guild.roles.cache.find(role => role.name === "Jackbox");
+  
   const guild = reaction.message.guild;
   const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
   // When a reaction is received, check if the structure is partial
