@@ -165,7 +165,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
 
   
   //Add role
-  if(reaction.channel.id === '850442406200344577')
+  if(reaction.message.channel.id === '850442406200344577')
   {
     //BotsOp mag geen rollen
     let client = reaction.message.channel.client;
