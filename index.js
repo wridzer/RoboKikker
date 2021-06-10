@@ -47,8 +47,7 @@ bot.on('message', async msg => {
   //report command
   if (msg.content.startsWith('!report')) {
     if (msg.mentions.users.size) {
-      const taggedUser = msg.mentions.users.first();
-      //let user = msg.guild.member(msg.mentions.users.first());
+      let taggedUser = msg.mentions.users.first();
       msg.channel.send(`You wanted to report: ${taggedUser.username}`);
       //const strafhoek = bot.channels.get(765951880236105758);
       //user.voice.setChannel(strafhoek);
