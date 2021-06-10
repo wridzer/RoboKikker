@@ -15,7 +15,7 @@ let unturnedRole;
 let jackRole;
 let pannenkoekrol;
 
-bot.login(TOKEN.token);
+bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
