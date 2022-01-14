@@ -10,10 +10,11 @@ const yewID = '757737687921852496';
 let artistRole;
 let liveRole;
 let MCRole;
-let valoRole;
 let unturnedRole;
 let jackRole;
 let pannenkoekrol;
+let amogusrol;
+let vrrol;
 
 bot.login(TOKEN);
 
@@ -59,7 +60,7 @@ bot.on('message', async msg => {
   //delete non quotes from quote channel
   if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800) {
     await msg.delete();
-    await msg.author.send(`this is not a quote, you freakin pancake`);
+    await msg.author.send(`You still don't get it, do you? that channel is only for quotes! if this wasn't a quote, go away you pancake. if it was, try starting the message with a " `);
   }
   //stupid question
   if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
@@ -119,14 +120,17 @@ bot.on('message', async msg => {
         '\n🎨 for the artist role' +
         '\n🍿 for the live role' +
         '\n🟩 for the minecraft role' +
-        '\n🔫 for the valorant role' +
         '\n🧟 for the unturned role' +
+        '\n🚀 for the among us role' +
+        '\n👓 for the VR role' +
         '\n📦 for the jackbox role');
     await rolemsg.react('🎨');
     await rolemsg.react('🍿');
     await rolemsg.react('🟩');
     await rolemsg.react('🔫');    
     await rolemsg.react('🧟');
+    await rolemsg.react('🚀');
+    await rolemsg.react('👓');
     await rolemsg.react('📦');
   }
 });
@@ -137,9 +141,10 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   artistRole = reaction.message.guild.roles.cache.find(role => role.name === "ArTisT");
   liveRole = reaction.message.guild.roles.cache.find(role => role.name === "Live");
   MCRole = reaction.message.guild.roles.cache.find(role => role.name === "Minecraft");
-  valoRole = reaction.message.guild.roles.cache.find(role => role.name === "Valorant");
   unturnedRole = reaction.message.guild.roles.cache.find(role => role.name === "Unturned");
   jackRole = reaction.message.guild.roles.cache.find(role => role.name === "Jackbox");
+  vrrol = reaction.message.guild.roles.cache.find(role => role.name === "VR");
+  amogusrol = reaction.message.guild.roles.cache.find(role => role.name === "Amogus");
   
   const guild = reaction.message.guild;
   const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
@@ -180,9 +185,10 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       case '🎨': roleToAdd = artistRole; break;
       case '🍿': roleToAdd = liveRole; break;
       case '🟩': roleToAdd = MCRole; break;
-      case '🔫': roleToAdd = valoRole; break;
       case '🧟': roleToAdd = unturnedRole; break;
       case '📦': roleToAdd = jackRole; break;
+      case '👓': roleToAdd = vrrol; break;
+      case '🚀': roleToAdd = amogusrol; break;
     }
     await memberWhoReacted.roles.add(roleToAdd);
   }
