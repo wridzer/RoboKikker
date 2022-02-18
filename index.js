@@ -15,6 +15,7 @@ let jackRole;
 let pannenkoekrol;
 let amogusrol;
 let vrrol;
+let geniusrol;
 
 bot.login(TOKEN);
 
@@ -119,11 +120,12 @@ bot.on('message', async msg => {
     const rolemsg = await msg.channel.send('You already know how it works! just react with the emoji corresponding to the role you want and you get it!' +
         '\n🎨 for the artist role' +
         '\n🍿 for the live role' +
-        '\n🟩 for the minecraft role' +
-        '\n🧟 for the unturned role' +
-        '\n🚀 for the among us role' +
+        '\n🟩 for the Minecraft role' +
+        '\n🧟 for the Unturned role' +
+        '\n🚀 for the Among us role' +
         '\n👓 for the VR role' +
-        '\n📦 for the jackbox role');
+        '\n📦 for the Jackbox role' +
+        '\n🧠 for the Genius role');
     await rolemsg.react('🎨');
     await rolemsg.react('🍿');
     await rolemsg.react('🟩');
@@ -132,6 +134,7 @@ bot.on('message', async msg => {
     await rolemsg.react('🚀');
     await rolemsg.react('👓');
     await rolemsg.react('📦');
+    await rolemsg.react('🧠');
   }
 });
 
@@ -145,6 +148,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   jackRole = reaction.message.guild.roles.cache.find(role => role.name === "Jackbox");
   vrrol = reaction.message.guild.roles.cache.find(role => role.name === "VR");
   amogusrol = reaction.message.guild.roles.cache.find(role => role.name === "Amogus");
+  geniusrol = reaction.message.guild.roles.cache.find(role => role.name === "Genius");
   
   const guild = reaction.message.guild;
   const memberWhoReacted = guild.members.cache.find(member => member.id === user.id);
@@ -189,6 +193,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
       case '📦': roleToAdd = jackRole; break;
       case '👓': roleToAdd = vrrol; break;
       case '🚀': roleToAdd = amogusrol; break;
+      case '🧠': roleToAdd = geniusrol; break;
     }
     await memberWhoReacted.roles.add(roleToAdd);
   }
