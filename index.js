@@ -62,6 +62,14 @@ bot.on('message', async msg => {
   if ((!msg.content.startsWith('\"') && (!msg.attachments.size > 0)) && msg.channel.id == 768120241308958800) {
     await msg.delete();
     await msg.author.send(`You still don't get it, do you? that channel is only for quotes! if this wasn't a quote, go away you pancake. if it was, try starting the message with a " `);
+    }
+  //Comment on selfies
+  if (msg.channel.id == 884800643418710097 && msg.attachments.size > 0) {
+      await msg.react('😍');
+      await msg.react('❤');
+      await msg.react('🤩');
+      await msg.react('🥵');
+      await msg.react('🥰');
   }
   //stupid question
   if (msg.content.startsWith('!stupid') && msg.channel.id == 831216690415140895) {
