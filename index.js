@@ -43,17 +43,17 @@ bot.on('message', async msg => {
     return
   }
   //maar echt
-  if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496)) {
+  if (msg.content.toLowerCase().includes('maar echt') && (msg.guild.id == 757737687921852496)) {
     await msg.channel.send('Maar echt');
   }
   //sex
-  // if ((msg.content.toUpperCase().substring('SEX') ||  msg.content.toUpperCase().substring('SEKS')) && msg.guild.id == 757737687921852496) {
-  //   await msg.react('✊');
-  //   await msg.react('🍆');
-  //   await msg.react('💦');
-  //   await msg.react('😝');
-  //   await msg.react('🍑');
-  // }
+  if ((msg.content.toLowerCase().includes('sex') ||  msg.content.toLowerCase().includes('seks')) && msg.guild.id == 757737687921852496) {
+    await msg.react('✊');
+    await msg.react('🍆');
+    await msg.react('💦');
+    await msg.react('😝');
+    await msg.react('🍑');
+  }
   //report command
   if (msg.content.startsWith('!report')) {
     if (msg.mentions.users.size) {
