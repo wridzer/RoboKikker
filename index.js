@@ -46,6 +46,14 @@ bot.on('message', async msg => {
   if ((msg.content === 'maar echt' || msg.content === 'Maar echt') && (msg.guild.id == 757737687921852496)) {
     await msg.channel.send('Maar echt');
   }
+  //sex
+  if (msg.content.toUpperCase() === 'SEX' && msg.guild.id == 757737687921852496) {
+    await msg.react('✊');
+    await msg.react('🍆');
+    await msg.react('💦');
+    await msg.react('😝');
+    await msg.react('🍑');
+  }
   //report command
   if (msg.content.startsWith('!report')) {
     if (msg.mentions.users.size) {
