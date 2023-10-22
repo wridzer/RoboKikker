@@ -47,7 +47,7 @@ bot.on('message', async msg => {
     await msg.channel.send('Maar echt');
   }
   //sex
-  if (msg.content.toUpperCase() === 'SEX' && msg.guild.id == 757737687921852496) {
+  if ((msg.content.toUpperCase().substring('SEX') ||  msg.content.toUpperCase().substring('SEKS')) && msg.guild.id == 757737687921852496) {
     await msg.react('✊');
     await msg.react('🍆');
     await msg.react('💦');
