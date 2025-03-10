@@ -238,9 +238,9 @@ async function updateServerStatus() {
     const server = response.data.data;
     let statusText = '';
     if (server.status === 1) { // 1 = Online
-      statusText = `🟢 **Server is online** Players: ${response.data.data.players.count} /n/n`;
+      statusText = `🟢 **Server is online** Players: ${response.data.data.players.count} \n\n`;
       for (let player of response.data.data.players.list) {
-        statusText += `${player.name} \n`;
+        statusText += `${player} \n`;
       }
     } else {
       statusText = '🔴 **Server is offline**';
