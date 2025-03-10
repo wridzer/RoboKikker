@@ -159,6 +159,12 @@ bot.on('message', async msg => {
     await rolemsg.react('📦');
     await rolemsg.react('🧠');
   }
+  //MCserver
+  if(msg.content.startsWith('!mcserver') && msg.channel.id == STATUS_CHANNEL_ID)
+  {
+    await updateServerStatus();
+    await msg.delete();
+  }
 });
 
 //reaction
