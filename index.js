@@ -224,7 +224,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
 
 async function updateServerStatus() {
   try {
-    const response = await axios.get(`https://api.exaroton.com/v1/server/${SERVER_ID}`, {
+    const response = await axios.get(`https://api.exaroton.com/v1/servers/${SERVER_ID}`, {
       headers: { 'Authorization': `Bearer ${EXAROTON_API_KEY}` }
     });
     
