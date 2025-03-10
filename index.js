@@ -228,6 +228,7 @@ async function updateServerStatus() {
       headers: { 'Authorization': `Bearer ${EXAROTON_API_KEY}` }
     });
     
+    console.log(response);
     const server = response.data.server;
     let statusText = '';
     if (server.status === 2) { // 2 = Online
