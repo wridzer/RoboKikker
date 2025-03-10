@@ -2,9 +2,13 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client({ ws: { intents: new Discord.Intents(Discord.Intents.ALL) }});
 const TOKEN = process.env.DISCORD_TOKEN;
+const EXAROTON_API_KEY = process.env.EXAROTON_API_KEY;
+const SERVER_ID = process.env.EXAROTON_SERVER_ID;
 const cron = require('cron');
 
 const port = process.env.PORT || 5000;
+const STATUS_CHANNEL_ID = process.env.STATUS_CHANNEL_ID;
+let statusMessage = null;
 
 const yewID = '757737687921852496';
 let artistRole;
@@ -12,26 +16,28 @@ let liveRole;
 let MCRole;
 let unturnedRole;
 let jackRole;
-let pannenkoekrol;
 let amogusrol;
 let vrrol;
 let geniusrol;
 
 bot.login(TOKEN);
 
-bot.on('ready', () => {
+bot.on('ready', async () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  const job = new cron.CronJob('0 0 8 * * *', () => {
-    const yew = bot.guilds.get(yewID);
-    let user = yew.guild.members.random();
-    const Role = yew.guild.roles.cache.get(pannenkoekrol);
-    Role.members.forEach((member, i) => { // Looping through the members of Role.
-      setTimeout(() => {
-        member.roles.remove(Role); // Removing the Role.
-      }, i * 1000);
-    });
-    user.roles.add(pannenkoekrol);
-  });
+  const channel = bot.channels.cache.get(STATUS_CHANNEL_ID);
+  if (!channel) {
+    console.error("Invalid channel ID. Make sure STATUS_CHANNEL_ID is set correctly.");
+    return;
+  }
+
+  // Send the initial message if not exists
+  if (!statusMessage) {
+    statusMessage = await channel.send('🔄 Fetching server status...');
+  }
+  updateServerStatus(); // Fetch status immediately
+
+  // Schedule updates every 5 minutes
+  new cron.CronJob('*/5 * * * *', updateServerStatus, null, true);
 });
 
 bot.on('message', async msg => {
@@ -215,5 +221,30 @@ bot.on('messageReactionAdd', async (reaction, user) => {
   }
 });
 
+async function updateServerStatus() {
+  try {
+    const response = await axios.get(`https://api.exaroton.com/v1/server/${SERVER_ID}`, {
+      headers: { 'Authorization': `Bearer ${EXAROTON_API_KEY}` }
+    });
+    
+    const server = response.data.server;
+    let statusText = '';
+    if (server.status === 2) { // 2 = Online
+      statusText = `🟢 **Server is online**
+👥 Players: ${server.players.count}`;
+    } else {
+      statusText = '🔴 **Server is offline**';
+    }
+    
+    if (statusMessage) {
+      statusMessage.edit(statusText);
+    }
+  } catch (error) {
+    console.error(error);
+    if (statusMessage) {
+      statusMessage.edit('⚠️ Error fetching server status.');
+    }
+  }
+}
 
 
