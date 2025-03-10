@@ -5,6 +5,7 @@ const TOKEN = process.env.DISCORD_TOKEN;
 const EXAROTON_API_KEY = process.env.EXAROTON_API_KEY;
 const SERVER_ID = process.env.EXAROTON_SERVER_ID;
 const cron = require('cron');
+const axios = require('axios');
 
 const port = process.env.PORT || 5000;
 const STATUS_CHANNEL_ID = process.env.STATUS_CHANNEL_ID;
