@@ -229,11 +229,10 @@ async function updateServerStatus() {
     });
     
     console.log(response);
-    const server = response.data.server;
+    const server = response.data.data;
     let statusText = '';
     if (server.status === 2) { // 2 = Online
-      statusText = `🟢 **Server is online**
-👥 Players: ${server.players.count}`;
+      statusText = `🟢 **Server is online** Players: ${response.data.data.players.count}`;
     } else {
       statusText = '🔴 **Server is offline**';
     }
