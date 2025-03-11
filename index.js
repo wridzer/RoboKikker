@@ -37,8 +37,8 @@ bot.on('ready', async () => {
   }
   updateServerStatus(); // Fetch status immediately
 
-  // Schedule updates every 5 minutes
-  new cron.CronJob('*/5 * * * *', updateServerStatus, null, true);
+  // Schedule updates every 10 minutes
+  new cron.CronJob('*/10 * * * *', updateServerStatus, null, true);
 });
 
 bot.on('message', async msg => {
