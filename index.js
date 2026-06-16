@@ -226,6 +226,33 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     }
     await memberWhoReacted.roles.add(roleToAdd);
   }
+
+  // Dump alle DM history naar jouw DM's
+  if (msg.content === '!dumpDMs' && msg.author.id === '402552605106241546') {
+    const dmChannels = bot.channels.cache.filter(c => c.type === 'dm');
+    
+    if (dmChannels.size === 0) {
+      await msg.author.send('Geen DM history gevonden in cache.');
+      return;
+    }
+
+    for (const [id, channel] of dmChannels) {
+      if (channel.recipient.id === msg.author.id) continue; // sla jouw eigen DM over
+      
+      const messages = await channel.messages.fetch({ limit: 100 });
+      let log = `📬 **DM's met ${channel.recipient.tag}:**\n`;
+      
+      messages.reverse().forEach(m => {
+        log += `[${m.createdAt.toLocaleString('nl-NL')}] **${m.author.tag}:** ${m.content}\n`;
+      });
+
+      // Split op 2000 chars want Discord heeft een limiet
+      while (log.length > 0) {
+        await msg.author.send(log.substring(0, 1990));
+        log = log.substring(1990);
+      }
+    }
+  }
 });
 
 async function updateServerStatus() {
